@@ -1,0 +1,515 @@
+{
+  "boards": [
+    {
+      "id": "board-1778112994357-675f07775fdbc",
+      "name": "Rela\u00e7\u00f5es Ecol\u00f3gicas",
+      "blocks": [
+        {
+          "id": "block-1778113183500-02e0941c52e59",
+          "height": 372.33333333333366,
+          "image": "images/board-1778112994357-675f07775fdbc/relacoes-png.png",
+          "imageName": "relacoes.png",
+          "text": "Uma rela\u00e7\u00e3o ecol\u00f3gica \u00e9 o nome dado \u00e0 uma rela\u00e7\u00e3o entre dois seres vivos, sejam eles da mesma esp\u00e9cie, ou de duas esp\u00e9cies diferentes.\nH\u00e1 um espectro de rela\u00e7\u00f5es, onde ela pode ser:\n- [blue]Intraespec\u00edfica [/blue](Mesma Esp\u00e9cie)\nou\n- [yellow]Interespec\u00edfica [/yellow](Esp\u00e9cies Diferentes)\n\nAl\u00e9m disso, a rela\u00e7\u00e3o tamb\u00e9m \u00e9:\n- [green]Harm\u00f4nica[/green]\nou\n- [red]Desarm\u00f4nica[/red]",
+          "title": "Rela\u00e7\u00f5es Ecol\u00f3gicas",
+          "width": 767.6666666666658,
+          "x": 1235.2063492063508,
+          "y": 781.5317460317451
+        },
+        {
+          "id": "block-1778113328387-e749cd07a896f",
+          "height": 218.61111111111092,
+          "image": "images/board-1778112994357-675f07775fdbc/pog-jpg-jpg.jpg",
+          "imageName": "pog jpg.jpg",
+          "text": "Uma rela\u00e7\u00e3o [green]harm\u00f4nica [/green]\u00e9 definida por um ser vivo sendo beneficiado, e o outro n\u00e3o sendo prejudicado, ou ambos os animais sendo beneficiados.\nUma rela\u00e7\u00e3o onde ambos s\u00e3o beneficiados \u00e9 uma (+, +).\nUma rela\u00e7\u00e3o onde apenas um \u00e9 beneficiado \u00e9 uma (+, 0)",
+          "title": "Rela\u00e7\u00f5es Harm\u00f4nicas",
+          "width": 675.833333333335,
+          "x": 449.9247247420634,
+          "y": 1003.303378510037
+        },
+        {
+          "id": "block-1778113546758-f13a13ee16b348",
+          "height": 189.58333333333331,
+          "image": "images/board-1778112994357-675f07775fdbc/relacao-interespecifica-desarmonica-predatismo-1034657560-jpg.jpg",
+          "imageName": "relacao-interespecifica-desarmonica-predatismo-1034657560.jpg",
+          "text": "Uma rela\u00e7\u00e3o [red]desarm\u00f4nica [/red]\u00e9 caracterizada por um ser vivo sendo beneficiado, e o outro sendo prejudicado, ou ambos sendo prejudicados.\nUma rela\u00e7\u00e3o onde um \u00e9 beneficiado e o outro \u00e9 prejudica \u00e9 uma (+, -)\nUma rela\u00e7\u00e3o onde ambos s\u00e3o prejudicados \u00e9 uma (-, -)",
+          "title": "Rela\u00e7\u00f5es Desarm\u00f4nicas",
+          "width": 815.6944444444434,
+          "x": 2088.516716084058,
+          "y": 1013.3196122762689
+        },
+        {
+          "id": "block-1778113761842-8590f55dff55b8",
+          "height": 173,
+          "image": "images/board-1778112994357-675f07775fdbc/bees-webp.webp",
+          "imageName": "bees.webp",
+          "text": "Uma rela\u00e7\u00e3o [blue]intraespec\u00edfica [/blue]\u00e9 definida por um ser vivo ter uma rela\u00e7\u00e3o ecol\u00f3gica com qualquer outro ser, seja ela [green]harm\u00f4nica[/green], ou [red]desarm\u00f4nica[/red], contanto que seja de sua mesma esp\u00e9cie.",
+          "title": "Rela\u00e7\u00f5es Intraespec\u00edficas",
+          "width": 467,
+          "x": 1362.2421850595272,
+          "y": 388.3614593181142
+        },
+        {
+          "id": "block-1778113931929-8cfa2eee269ab",
+          "height": 216,
+          "image": "images/board-1778112994357-675f07775fdbc/leon-webp.webp",
+          "imageName": "leon.webp",
+          "text": "Uma rela\u00e7\u00e3o [yellow]interespec\u00edfica [/yellow]\u00e9 caracterizada por um ser vivo ter uma rela\u00e7\u00e3o ecol\u00f3gica com qualquer outro ser, seja ela [green]harm\u00f4nica[/green], ou [red]desarm\u00f4nica[/red], contanto que ele seja de uma esp\u00e9cie diferente de sua pr\u00f3pria.",
+          "title": "Rela\u00e7\u00f5es Interespec\u00edficas",
+          "width": 548,
+          "x": 1330.9991065436143,
+          "y": 1461.3603691629971
+        },
+        {
+          "id": "block-1778115159806-d0c2e3071038f8",
+          "height": 368.54545454545485,
+          "image": "images/board-1778112994357-675f07775fdbc/colonia-coral-jpg.jpg",
+          "imageName": "COLONIA coral.jpg",
+          "text": "Col\u00f4nias s\u00e3o uma rela\u00e7\u00e3o [green]harm\u00f4nica[/green], [blue]intraespec\u00edfica[/blue]. (+, +)\nExistem dois tipos de col\u00f4nias, por\u00e9m as caracter\u00edsticas semelhantes e necess\u00e1rias entre elas s\u00e3o:\n- A uni\u00e3o f\u00edsica, ou seja, todos os membros s\u00e3o grudados uns aos outros, anatomicamente\n- N\u00e3o separa\u00e7\u00e3o, onde se separados, indiv\u00edduos sozinhos n\u00e3o ir\u00e3o sobreviver\n- Benef\u00edcio m\u00fatuo, onde todos os indiv\u00edduos involvidos na col\u00f4nia s\u00e3o beneficiados\n\nOs dois tipos diferentes s\u00e3o:\n- Isom\u00f3rficas: Representadas na imagem, onde todos os seres s\u00e3o anatomicamente iguais e exercem as mesmas fun\u00e7\u00f5es (ex. Corais)\n- Heterom\u00f3rficas: Onde os indiv\u00edduos s\u00e3o anatomicamente diferentes e exercem fun\u00e7\u00f5es distintas na col\u00f4nia [justify:justification-1778115830349-16d49e2d05f178](Ex. Caravelas)[/justify]",
+          "title": "Col\u00f4nias",
+          "width": 944.5454545454543,
+          "x": -108.1060660615599,
+          "y": 410.377019179648
+        },
+        {
+          "id": "justification-1778115830349-16d49e2d05f178",
+          "height": 649.8181818181819,
+          "image": "images/board-1778112994357-675f07775fdbc/hereteo-2-jpg.jpg",
+          "imageName": "hereteo 2.jpg",
+          "justificationFor": "block-1778115159806-d0c2e3071038f8",
+          "text": "",
+          "title": "Justification: Heterom\u00f3rficas: Onde os indi...",
+          "width": 638.9999999999998,
+          "x": -804.4956764511709,
+          "y": 27.571824374453207
+        },
+        {
+          "id": "block-1778116093484-901c92b814487",
+          "height": 406.363636363637,
+          "image": "images/board-1778112994357-675f07775fdbc/abelha-webp.webp",
+          "imageName": "abelha.webp",
+          "text": "Sociedades s\u00e3o uma rela\u00e7\u00e3o [green]harm\u00f4nica[/green], [blue]intraespec\u00edfica[/blue]. (+, +)\nTodas as sociedades seguem um certo padr\u00e3o, esse sendo:\n- A independ\u00eancia f\u00edsica, onde cada ser da sociedade \u00e9 um indiv\u00edduo pr\u00f3prio, ao contr\u00e1rio da col\u00f4nia, onde todos est\u00e3o grudados\n- Divis\u00e3o de trabalhos, onde, mesmo sendo da mesma esp\u00e9cie, certos indiv\u00edduos caem em trabalhos espec\u00edficos, como por exemplo, na sociedade de abelhas, onde temos Zang\u00f5es (para reprodu\u00e7\u00e3o), Soldados (para defesa) e a Rainha, para criar mais abelhas.\n\nExemplos de sociedades incluem:\n- Humanos\n- Abelhas\n- Formigas\n- Cupins",
+          "title": "Sociedades",
+          "width": 783.6363636363646,
+          "x": 518.8791486291491,
+          "y": -31.951659451659552
+        },
+        {
+          "id": "block-1778116477803-943e638ef1c268",
+          "height": 186.25,
+          "image": "",
+          "imageName": "",
+          "text": "[size:48]RELA\u00c7\u00d5ES [green]HARM\u00d4NICAS [/green][blue]INTRAPESPEC\u00cdFICAS [/blue][/size]",
+          "title": "",
+          "width": 556.25,
+          "x": -99.44079531579654,
+          "y": 109.05205905205915
+        },
+        {
+          "id": "block-1778117004562-082e8953e2c9",
+          "height": 381.1111111111113,
+          "image": "images/board-1778112994357-675f07775fdbc/caniabal-webp.webp",
+          "imageName": "caniabal.webp",
+          "text": "O canibalismo \u00e9 uma rela\u00e7\u00e3o [red]desarm\u00f4nica[/red], [blue]intraespec\u00edfica[/blue]. (+, -)\nA principal caracter\u00edstica do canibalismo \u00e9 de consumir um ser de sua pr\u00f3pria esp\u00e9cie, por\u00e9m, existem certas raz\u00f5es para isso, que podem incluir um ou mais das seguintes mencionadas:\n- Controle populacional, onde certas esp\u00e9cies protegem contra a superpopula\u00e7\u00e3o atrav\u00e9s do canibalismo\n- Sobreviv\u00eancia, onde em situa\u00e7\u00f5es de alta densidade populacional, o canibalismo ajuda a garantir nutrientes, e controlar a popula\u00e7\u00e3o\n- Ap\u00f3s a c\u00f3pula, como um meio de garantir nutrientes essencias para os ovos\nCertas esp\u00e9cies que apresentam tend\u00eancias canibalistas s\u00e3o:\n- Louva-a-Deus\n- Vi\u00fava-Negra\n- Camar\u00f5es\n- Lagartos",
+          "title": "Canibalismo",
+          "width": 1072.2222222222201,
+          "x": 2199.3045149295103,
+          "y": 536.5186896436908
+        },
+        {
+          "id": "block-1778117225001-f18bb1cc4e767",
+          "height": 358.7142857142859,
+          "image": "images/board-1778112994357-675f07775fdbc/competicao-webp.webp",
+          "imageName": "competicao.webp",
+          "text": "A competi\u00e7\u00e3o \u00e9 uma rela\u00e7\u00e3o ecol\u00f3gica [red]desarm\u00f4nica[/red], [blue]intraespec\u00edfica[/blue]. (+, -) ou (-, -).\nA competi\u00e7\u00e3o \u00e9 caracterizada disputa de recursos, seja tal recurso alimento, parceiros, territ\u00f3rios, etc.\nA competi\u00e7\u00e3o geralmente leva a uma perda geral entre ambas as partes, seja uma pela morte, e a outra pelos machucados, se n\u00e3o tamb\u00e9m a morte. Raramente a competi\u00e7a\u00f5 leva a um resultado 100% positivo a uma parte.\nEsp\u00e9cies que exibem competi\u00e7\u00e3o [blue]intraespec\u00edfica[/blue] incluem:\n- Cervos\n- Hienas\n- Le\u00f5es\n- Tigres\n- Plantas, \u00c1rvores\n\n(A competi\u00e7\u00e3o pode ser tanto [blue]intraespec\u00edfica [/blue]quanto [yellow]interespec\u00edfica[/yellow], j\u00e1 que acontece em ambos os casos.)",
+          "title": "Competi\u00e7\u00e3o Intraespec\u00edfica",
+          "width": 1314.6071428571433,
+          "x": 1482.927530802528,
+          "y": -129.70551670551646
+        },
+        {
+          "id": "block-1778117807344-b3299f34789df8",
+          "height": 190,
+          "image": "",
+          "imageName": "",
+          "text": "[size:48]RELA\u00c7\u00d5ES [red]DESHARM\u00d4NICAS [/red][blue]INTRAPESPEC\u00cdFICAS [/blue][/size]",
+          "title": "",
+          "width": 590,
+          "x": 2316.2619047619046,
+          "y": 300.4523809523812
+        },
+        {
+          "id": "block-1778118009744-784c71c05172b",
+          "height": 211.6666666666666,
+          "image": "",
+          "imageName": "",
+          "text": "[size:48]RELA\u00c7\u00d5ES [green]HARM\u00d4NICAS [/green][yellow]INTERESPEC\u00cdFICAS[/yellow][/size]",
+          "title": "",
+          "width": 491.6666666666676,
+          "x": -704.1064425770313,
+          "y": 1754.5532212885141
+        },
+        {
+          "id": "block-1778118090006-3eb6cda6ffd9d",
+          "height": 380.4545454545463,
+          "image": "images/board-1778112994357-675f07775fdbc/viado-jpg.jpg",
+          "imageName": "viado.jpg",
+          "text": "O mutualismo \u00e9 uma rela\u00e7\u00e3o [green]harm\u00f4nica[/green], [yellow]interespec\u00edfica[/yellow]. (+, +)\nExistem dois tipos de mutualismo, por\u00e9m a caracter\u00edstica pr\u00edncipal entre ambas \u00e9 o fato de dois organismos de duas esp\u00e9cies diferentes recebendo benef\u00edcios um do outro.\n\nEntre os dois tipos de Mutualismo, existe:\n- Mutualismo Obrigat\u00f3rio (Simbiose), onde as duas esp\u00e9cies diferentes necessitam uma da outra para sobreviver, e se separadas, morrem.\n- Mutualismo Facultativo (Protocoopera\u00e7\u00e3o), onde as duas esp\u00e9cies conseguem sobreviver individualmente, e apenas cooperam uma com a outra\n\n[justify:justification-1778118763101-82bc553691e74]Exemplos de Simbiose incluem:[/justify]\n- Microrganismos no trato digest\u00f3rio\n- L\u00edquens, onde algas realizam fotoss\u00edntese para nutrir o fungo, e o fungo traz prote\u00e7\u00e3o e minerais\nExemplos de Protocoopera\u00e7\u00e3o incluem:\n- Abelhas e Flores, com a poliniza\u00e7\u00e3o\n- Gar\u00e7a-Vaqueira e Gado, onde a Gar\u00e7a come parasitas mal\u00e9ficos ao Gado (Imagem)",
+          "title": "",
+          "width": 1297.9545454545475,
+          "x": -306.3041125541125,
+          "y": 1300.9956709956718
+        },
+        {
+          "id": "block-1778118145583-e7b36590d18d08",
+          "height": 318.66666666666674,
+          "image": "images/board-1778112994357-675f07775fdbc/tubarao-webp.webp",
+          "imageName": "tubarao.webp",
+          "text": "O comensialismo \u00e9 uma rela\u00e7\u00e3o [green]harm\u00f4nica[/green], [yellow]interespec\u00edfica[/yellow]. (+, 0)\nO comensialismo \u00e9 caracterizado pelo fato de ser uma rela\u00e7\u00e3o onde uma parte \u00e9 beneficiada, enquanto a outra \u00e9 neutra.\nO maior exemplo disso \u00e9 o do peixe r\u00eamora e o tubar\u00e3o, onde esses peixes se fixam ao tubar\u00e3o, e comem os restos dos corpos dilacerados pelo tubar\u00e3o, cujo o pr\u00f3prio \u00e9 indiferente \u00e0.\nOutros exemplos na natureza incluem:\n- Le\u00f4es e Hienas, onde Hienas comem os restos de v\u00edtimas de Le\u00f5es\n- An\u00eamonas-do-Mar e o Peixe-Palha\u00e7o, onde o Peixe-Palha\u00e7o usa os tent\u00e1culos das An\u00eamonas como abrigo, al\u00e9m disso, ocasionalmente ele tamb\u00e9m consome os restos de alimentos das An\u00eamonas\n- Humanos e Urubus/Guaxinims/Pombos/Ratos, que se alimentam de restos de comidas deixados por Humanos nos lixos",
+          "title": "",
+          "width": 1167.0000000000011,
+          "x": -162.9138655462188,
+          "y": 1819.4523809523782
+        },
+        {
+          "id": "justification-1778118763101-82bc553691e74",
+          "height": 520,
+          "image": "images/board-1778112994357-675f07775fdbc/lichen-jpg.jpg",
+          "imageName": "lichen.jpg",
+          "justificationFor": "block-1778118090006-3eb6cda6ffd9d",
+          "text": "",
+          "title": "Justification: Exemplos de Simbiose incluem...",
+          "width": 700.4166666666665,
+          "x": -1069.8971861471844,
+          "y": 1139.5562770562772
+        },
+        {
+          "id": "block-1778119644492-445e52d92dd58",
+          "height": 196.25,
+          "image": "",
+          "imageName": "",
+          "text": "[size:48]RELA\u00c7\u00d5ES [red]DESHARM\u00d4NICAS [/red][yellow]INTERESPEC\u00cdFICAS[/yellow][/size]",
+          "title": "",
+          "width": 473.75,
+          "x": 2351.6180992210457,
+          "y": 1832.9411364779003
+        },
+        {
+          "id": "block-1778119706395-5497de7541a358",
+          "height": 444.21153846153845,
+          "image": "images/board-1778112994357-675f07775fdbc/fuckkk-jpg.jpg",
+          "imageName": "FUCKKK.jpg",
+          "text": "A competi\u00e7\u00e3o \u00e9 uma rela\u00e7\u00e3o ecol\u00f3gica [red]desarm\u00f4nica[/red], [yellow]interespec\u00edfica[/yellow]. (-, -).\nA competi\u00e7\u00e3o \u00e9 caracterizada disputa de recursos, seja tal recurso alimento, territ\u00f3rios, ou nichos ecol\u00f3gicos.\nA competi\u00e7\u00e3o geralmente leva a uma perda geral entre ambas as partes, seja uma pela morte, e a outra pelos machucados, se n\u00e3o tamb\u00e9m a morte. Raramente a competi\u00e7a\u00f5 leva a um resultado 100% positivo \u00e0 uma parte.\nA competi\u00e7\u00e3o [yellow]interespec\u00edfica[/yellow] tem a adi\u00e7\u00e3o de certas esp\u00e9cies poderem completamente eliminar uma a outra, ou, em certos casos, alterar seus h\u00e1bitos, sendo ambos os casos devidos \u00e0 disputa de recursos.\nEsp\u00e9cies que exibem competi\u00e7\u00e3o [yellow]interespec\u00edfica[/yellow] incluem:\n- Gado, Gafanhotos\n- Gavi\u00f5es, Cobras\n- Tigres, Hienas\n- Plantas, \u00c1rvores\n\n(A competi\u00e7\u00e3o pode ser tanto [yellow]interespec\u00edfica[/yellow] quanto [blue]intraespec\u00edfica [/blue], j\u00e1 que acontece em ambos os casos.)",
+          "title": "Competi\u00e7\u00e3o Interespec\u00edfica",
+          "width": 993.2884615384621,
+          "x": 2084.756044608989,
+          "y": 1304.446297983064
+        },
+        {
+          "id": "block-1778120498354-155b6050fc813",
+          "height": 297.5,
+          "image": "images/board-1778112994357-675f07775fdbc/lion-zebra-webp.webp",
+          "imageName": "lion zebra.webp",
+          "text": "O predatismo \u00e9 uma rela\u00e7\u00e3o ecol\u00f3gica [red]desarm\u00f4nica[/red], [yellow]interespec\u00edfica[/yellow]. (+, -).\nA caracter\u00edstica pr\u00edncipal do predatismo \u00e9 de ter o que se beneficia, chamado de Ca\u00e7ador, e a Presa, que se \u00e9 morta.\nDevido ao predatismo, v\u00e1rias esp\u00e9cies desenvolveram diversas capacidades especiais para a ca\u00e7a, incluindo garras, veneno, vis\u00e3o mais apurada, agilidade, etc.\nAnimais que praticam predatismo incluem:\n- Le\u00f4es\n- Corujas\n- Lobos\n- Tubar\u00f5es",
+          "title": "Predatismo",
+          "width": 1230,
+          "x": 2224.111439214383,
+          "y": 2100.1237779105422
+        },
+        {
+          "id": "block-1778120792473-b2ae4bc68ad7e",
+          "height": 282.3376623376629,
+          "image": "images/board-1778112994357-675f07775fdbc/amensalismo-jpg.jpg",
+          "imageName": "amensalismo.jpg",
+          "text": "O amensalismo \u00e9 uma rela\u00e7\u00e3o ecol\u00f3gica [red]desarm\u00f4nica[/red], [yellow]interespec\u00edfica[/yellow]. (0, -).\nA caracter\u00edstica pr\u00edncipal do amensalismo \u00e9 o fato do inibidor n\u00e3o necessariamente se beneficiar diretamente do preju\u00edzo causado, sendo majoritariamente uma consequ\u00eancia de um processo qu\u00edmico/biol\u00f3gico que acontece de liberar subst\u00e2ncias t\u00f3xicas para outros organismos.\nOs processos mais conhecidos incluem:\n- Antibiose, onde fungos liberam antibi\u00f3ticos que matam bact\u00e9rias ao seu redor, sem receber direto benef\u00edcio dessa morte\n- A Mar\u00e9 Vermelha (imagem), onde a flora\u00e7\u00e3o excessiva de certas algas libera toxinas na \u00e1gua, causando a morte de v\u00e1rios peixes, moluscos e diversos outros organismos marinhos\n- Aleopatia, onde plantas como Eucaliptos podem liberar subst\u00e2ncias no solo atrav\u00e9s de suas ra\u00edzes que inibem o crescimento de outras plantas",
+          "title": "",
+          "width": 1138.701298701299,
+          "x": 3171.0981893923085,
+          "y": 1630.3900040403548
+        },
+        {
+          "id": "block-1778177541339-9ff9ca0b040fd",
+          "height": 411.73913043478274,
+          "image": "images/board-1778112994357-675f07775fdbc/carapatinh-webp.webp",
+          "imageName": "carapatinh.webp",
+          "text": "O predatismo \u00e9 uma rela\u00e7\u00e3o ecol\u00f3gica [red]desarm\u00f4nica[/red], [yellow]interespec\u00edfica[/yellow]. (+, -).\nA caracter\u00edstica pr\u00edncipal do parasitismo \u00e9 o preju\u00edzo causado ao hospedeiro (-) pelo parasita (+), sem necess\u00e1riamente causar a morte do pr\u00f3prio.\nExistem dois tipos de parasitas:\n- Endoparasitas, que vivem e se reproduzem no interior do corpo de seus hospedeiros\n- Ectoparasitas, que vivem e se reproduzem no exterior do corpo de seus hospedeiros\n\n[justify:justification-1778177635011-6038508ba4e96]Endoparasitas[/justify] incluem:\n- Protozo\u00e1rios\n- T\u00eanias\n- Lombrigas\n\nEctoparasitas incluem:\n- Pulgas\n- Carrapatos (imagem)\n- Piolhos",
+          "title": "Parasitismo",
+          "width": 1107.1739130434787,
+          "x": 1079.134395556513,
+          "y": 1956.8115627033112
+        },
+        {
+          "id": "justification-1778177635011-6038508ba4e96",
+          "height": 426.81917211328994,
+          "image": "images/board-1778112994357-675f07775fdbc/endo-webp.webp",
+          "imageName": "endo.webp",
+          "justificationFor": "block-1778177541339-9ff9ca0b040fd",
+          "text": "",
+          "title": "Justification: Endoparasitas",
+          "width": 507.70152505446634,
+          "x": 660.2133005484621,
+          "y": 2435.636039353877
+        }
+      ],
+      "connections": [
+        {
+          "id": "connection-1778114026065-35a6955172ae8",
+          "blockIds": [
+            "block-1778113183500-02e0941c52e59",
+            "block-1778113328387-e749cd07a896f"
+          ],
+          "color": "green"
+        },
+        {
+          "id": "connection-1778114035545-3cff140c869278",
+          "blockIds": [
+            "block-1778113183500-02e0941c52e59",
+            "block-1778113546758-f13a13ee16b348"
+          ],
+          "color": "red"
+        },
+        {
+          "id": "connection-1778114041905-de2b0609572868",
+          "blockIds": [
+            "block-1778113183500-02e0941c52e59",
+            "block-1778113761842-8590f55dff55b8"
+          ],
+          "color": "blue"
+        },
+        {
+          "id": "connection-1778114050657-c296ea1bd2ba38",
+          "blockIds": [
+            "block-1778113183500-02e0941c52e59",
+            "block-1778113931929-8cfa2eee269ab"
+          ],
+          "color": "yellow"
+        },
+        {
+          "id": "connection-1778115455036-1d13bdab3a46d8",
+          "blockIds": [
+            "block-1778113761842-8590f55dff55b8",
+            "block-1778115159806-d0c2e3071038f8"
+          ],
+          "color": "blue"
+        },
+        {
+          "id": "connection-1778115462566-ca8ea82a65e9b",
+          "blockIds": [
+            "block-1778115159806-d0c2e3071038f8",
+            "block-1778113328387-e749cd07a896f"
+          ],
+          "color": "green"
+        },
+        {
+          "id": "connection-1778116312659-8342aef158d988",
+          "blockIds": [
+            "block-1778113328387-e749cd07a896f",
+            "block-1778116093484-901c92b814487"
+          ],
+          "color": "green"
+        },
+        {
+          "id": "connection-1778116316203-908f7e0b88daf",
+          "blockIds": [
+            "block-1778116093484-901c92b814487",
+            "block-1778113761842-8590f55dff55b8"
+          ],
+          "color": "blue"
+        },
+        {
+          "id": "connection-1778117138705-bcd8355ea1c958",
+          "blockIds": [
+            "block-1778113761842-8590f55dff55b8",
+            "block-1778117004562-082e8953e2c9"
+          ],
+          "color": "blue"
+        },
+        {
+          "id": "connection-1778117142978-20f5dbdb67a0e",
+          "blockIds": [
+            "block-1778117004562-082e8953e2c9",
+            "block-1778113546758-f13a13ee16b348"
+          ],
+          "color": "red"
+        },
+        {
+          "id": "connection-1778117242778-e0acc0fe99ee78",
+          "blockIds": [
+            "block-1778117225001-f18bb1cc4e767",
+            "block-1778113546758-f13a13ee16b348"
+          ],
+          "color": "red"
+        },
+        {
+          "id": "connection-1778117257521-b2b68b5c17e658",
+          "blockIds": [
+            "block-1778117225001-f18bb1cc4e767",
+            "block-1778113761842-8590f55dff55b8"
+          ],
+          "color": "blue"
+        },
+        {
+          "id": "connection-1778118967797-d44bd19b46917",
+          "blockIds": [
+            "block-1778116477803-943e638ef1c268",
+            "block-1778115159806-d0c2e3071038f8"
+          ],
+          "color": "blue"
+        },
+        {
+          "id": "connection-1778118973669-fdb0a2ae775bb",
+          "blockIds": [
+            "block-1778116477803-943e638ef1c268",
+            "block-1778116093484-901c92b814487"
+          ],
+          "color": "green"
+        },
+        {
+          "id": "connection-1778118993244-37a50363f68658",
+          "blockIds": [
+            "block-1778113328387-e749cd07a896f",
+            "block-1778118090006-3eb6cda6ffd9d"
+          ],
+          "color": "green"
+        },
+        {
+          "id": "connection-1778118995885-54667cbe7363b8",
+          "blockIds": [
+            "block-1778113328387-e749cd07a896f",
+            "block-1778118145583-e7b36590d18d08"
+          ],
+          "color": "green"
+        },
+        {
+          "id": "connection-1778119006061-4ed84e80c345b8",
+          "blockIds": [
+            "block-1778118009744-784c71c05172b",
+            "block-1778118090006-3eb6cda6ffd9d"
+          ],
+          "color": "green"
+        },
+        {
+          "id": "connection-1778119012238-5621a12c75a3e8",
+          "blockIds": [
+            "block-1778118009744-784c71c05172b",
+            "block-1778118145583-e7b36590d18d08"
+          ],
+          "color": "yellow"
+        },
+        {
+          "id": "connection-1778119014525-ca3e187ee863f",
+          "blockIds": [
+            "block-1778118145583-e7b36590d18d08",
+            "block-1778113931929-8cfa2eee269ab"
+          ],
+          "color": "yellow"
+        },
+        {
+          "id": "connection-1778119015653-ccaaed53c4a1e",
+          "blockIds": [
+            "block-1778113931929-8cfa2eee269ab",
+            "block-1778118090006-3eb6cda6ffd9d"
+          ],
+          "color": "yellow"
+        },
+        {
+          "id": "connection-1778120180482-7f9ffd033ce57",
+          "blockIds": [
+            "block-1778113931929-8cfa2eee269ab",
+            "block-1778119706395-5497de7541a358"
+          ],
+          "color": "yellow"
+        },
+        {
+          "id": "connection-1778120184682-f1faa0a5c9b588",
+          "blockIds": [
+            "block-1778119706395-5497de7541a358",
+            "block-1778113546758-f13a13ee16b348"
+          ],
+          "color": "red"
+        },
+        {
+          "id": "connection-1778120194474-cfcc13027d384",
+          "blockIds": [
+            "block-1778119644492-445e52d92dd58",
+            "block-1778119706395-5497de7541a358"
+          ],
+          "color": "red"
+        },
+        {
+          "id": "connection-1778120700529-c640e63d5d7e9",
+          "blockIds": [
+            "block-1778113546758-f13a13ee16b348",
+            "block-1778120498354-155b6050fc813"
+          ],
+          "color": "red"
+        },
+        {
+          "id": "connection-1778120710745-d67f4cd580daf8",
+          "blockIds": [
+            "block-1778113931929-8cfa2eee269ab",
+            "block-1778120498354-155b6050fc813"
+          ],
+          "color": "yellow"
+        },
+        {
+          "id": "connection-1778120711448-23ba95a892b9c",
+          "blockIds": [
+            "block-1778120498354-155b6050fc813",
+            "block-1778119644492-445e52d92dd58"
+          ],
+          "color": "yellow"
+        },
+        {
+          "id": "connection-1778120810929-a1c9d2f73b3508",
+          "blockIds": [
+            "block-1778113931929-8cfa2eee269ab",
+            "block-1778120792473-b2ae4bc68ad7e"
+          ],
+          "color": "yellow"
+        },
+        {
+          "id": "connection-1778120815961-1389970160338",
+          "blockIds": [
+            "block-1778120792473-b2ae4bc68ad7e",
+            "block-1778113546758-f13a13ee16b348"
+          ],
+          "color": "red"
+        },
+        {
+          "id": "connection-1778150911795-06fd03985e1348",
+          "blockIds": [
+            "block-1778120792473-b2ae4bc68ad7e",
+            "block-1778119644492-445e52d92dd58"
+          ],
+          "color": "red"
+        },
+        {
+          "id": "connection-1778177742787-b514250ed5bdd",
+          "blockIds": [
+            "block-1778113931929-8cfa2eee269ab",
+            "block-1778177541339-9ff9ca0b040fd"
+          ],
+          "color": "yellow"
+        },
+        {
+          "id": "connection-1778177747947-9d8f8ce698f1e",
+          "blockIds": [
+            "block-1778177541339-9ff9ca0b040fd",
+            "block-1778113546758-f13a13ee16b348"
+          ],
+          "color": "red"
+        },
+        {
+          "id": "connection-1778177765379-0adad6e89456a",
+          "blockIds": [
+            "block-1778119644492-445e52d92dd58",
+            "block-1778177541339-9ff9ca0b040fd"
+          ],
+          "color": "red"
+        }
+      ],
+      "thumbnail": "images/board-1778112994357-675f07775fdbc/thumbnail.png",
+      "thumbnailName": "relacoes.png"
+    }
+  ]
+}

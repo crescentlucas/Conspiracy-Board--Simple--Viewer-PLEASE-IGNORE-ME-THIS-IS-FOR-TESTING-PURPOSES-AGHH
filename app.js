@@ -96,6 +96,8 @@ const state = {
   revealedJustificationBlockIds: [],
   resizedBlock: null,
   selectedConnectionBlockIds: [],
+  suppressNextBoardClick: false,
+  suppressNextBoardClickTimer: 0,
   unconnectMode: false,
   viewerFocusBaseBlockId: "",
   viewerFocusIndex: 0,
@@ -1083,13 +1085,24 @@ function zoomBoardBy(delta) {
   setZoomAtPoint(state.scale + delta);
 }
 
+function setSuppressNextBoardClick() {
+  state.suppressNextBoardClick = true;
+  window.clearTimeout(state.suppressNextBoardClickTimer);
+  state.suppressNextBoardClickTimer = window.setTimeout(() => {
+    state.suppressNextBoardClick = false;
+  }, 400);
+}
+
 function startBoardDrag(event) {
   if (state.unconnectMode && event.target.closest(".connection-line")) {
     return;
   }
 
+  const startedOnCard = Boolean(event.target.closest(".note-card"));
+  const canStartOnCard = state.viewerMode && event.pointerType !== "mouse";
+
   if (
-    event.target.closest(".note-card")
+    (startedOnCard && !canStartOnCard)
     || event.target.closest(".board-toolbar")
     || event.target.closest(".block-panel")
     || event.target.closest(".settings-panel")
@@ -1097,24 +1110,33 @@ function startBoardDrag(event) {
     return;
   }
 
-  event.preventDefault();
+  if (!startedOnCard) {
+    event.preventDefault();
+  }
+
   const pointer = getViewportPoint(event);
 
-  state.boardPointers.set(event.pointerId, pointer);
+  state.boardPointers.set(event.pointerId, {
+    ...pointer,
+    startedOnCard,
+  });
 
   if (state.boardPointers.size >= 2) {
+    event.preventDefault();
     state.isDraggingBoard = false;
     startPinchZoom();
     viewport.classList.add("is-dragging");
-    viewport.setPointerCapture(event.pointerId);
     return;
   }
 
-  state.isDraggingBoard = true;
+  state.isDraggingBoard = !startedOnCard;
   state.lastX = pointer.x;
   state.lastY = pointer.y;
   viewport.classList.add("is-dragging");
-  viewport.setPointerCapture(event.pointerId);
+
+  if (!startedOnCard) {
+    viewport.setPointerCapture(event.pointerId);
+  }
 }
 
 function dragBoard(event) {
@@ -1122,10 +1144,15 @@ function dragBoard(event) {
     return;
   }
 
+  const previousPointer = state.boardPointers.get(event.pointerId);
   const pointer = getViewportPoint(event);
-  state.boardPointers.set(event.pointerId, pointer);
+  state.boardPointers.set(event.pointerId, {
+    ...pointer,
+    startedOnCard: previousPointer.startedOnCard,
+  });
 
   if (state.pinchZoom && state.boardPointers.size >= 2) {
+    event.preventDefault();
     const [first, second] = getBoardPointerPair();
     const center = getPointerMidpoint(first, second);
     const distance = Math.max(getPointerDistance(first, second), 1);
@@ -1134,6 +1161,7 @@ function dragBoard(event) {
     state.scale = clamp(nextScale, minZoom, maxZoom);
     state.x = center.x - state.pinchZoom.boardX * state.scale;
     state.y = center.y - state.pinchZoom.boardY * state.scale;
+    setSuppressNextBoardClick();
     renderBoard();
     return;
   }
@@ -1165,7 +1193,7 @@ function stopBoardDrag(event) {
 
   if (state.boardPointers.size === 1) {
     const [remainingPointer] = state.boardPointers.values();
-    state.isDraggingBoard = true;
+    state.isDraggingBoard = !remainingPointer.startedOnCard;
     state.lastX = remainingPointer.x;
     state.lastY = remainingPointer.y;
     return;
@@ -2219,6 +2247,14 @@ blockImage.addEventListener("change", async () => {
 });
 
 board.addEventListener("click", (event) => {
+  if (state.suppressNextBoardClick) {
+    event.preventDefault();
+    event.stopPropagation();
+    state.suppressNextBoardClick = false;
+    window.clearTimeout(state.suppressNextBoardClickTimer);
+    return;
+  }
+
   const justifyLink = event.target.closest(".justify-link");
 
   if (justifyLink) {

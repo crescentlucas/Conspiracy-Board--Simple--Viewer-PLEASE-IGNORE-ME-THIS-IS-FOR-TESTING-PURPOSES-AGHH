@@ -623,6 +623,11 @@ body:not(.viewer-mode) .mobile-viewer-controls {
   width: 3200px;
 }
 
+.board,
+.note-card {
+  touch-action: none;
+}
+
 .connection-layer {
   inset: 0;
   overflow: visible;

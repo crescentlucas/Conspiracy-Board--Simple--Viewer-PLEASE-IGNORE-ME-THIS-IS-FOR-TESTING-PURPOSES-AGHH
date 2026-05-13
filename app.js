@@ -54,15 +54,17 @@ const insertSizeButton = document.querySelector("#insertSizeButton");
 const insertJustifyButton = document.querySelector("#insertJustifyButton");
 const insertLinkButton = document.querySelector("#insertLinkButton");
 const viewerFocusCounter = document.querySelector("#viewerFocusCounter");
-const viewerPreviousFocus = document.querySelector("#viewerPreviousFocus");
-const viewerNextFocus = document.querySelector("#viewerNextFocus");
-const zoomOutButton = document.querySelector("#zoomOutButton");
-const zoomInButton = document.querySelector("#zoomInButton");
+let viewerPreviousFocus = document.querySelector("#viewerPreviousFocus");
+let viewerNextFocus = document.querySelector("#viewerNextFocus");
+let zoomOutButton = document.querySelector("#zoomOutButton");
+let zoomInButton = document.querySelector("#zoomInButton");
 
 const minZoom = 0.3;
 const maxZoom = 3;
 const wheelZoomStep = 0.1;
 const buttonZoomStep = 0.2;
+
+ensureMobileViewerControls();
 
 const colorValues = {
   red: "#ff0000",
@@ -110,6 +112,42 @@ const state = {
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
+}
+
+function createMobileControlButton(id, label, ariaLabel) {
+  const button = document.createElement("button");
+  button.className = "mobile-control-button";
+  button.id = id;
+  button.type = "button";
+  button.textContent = label;
+  button.setAttribute("aria-label", ariaLabel);
+  button.title = ariaLabel;
+  return button;
+}
+
+function ensureMobileViewerControls() {
+  if (viewerPreviousFocus && viewerNextFocus && zoomOutButton && zoomInButton) {
+    return;
+  }
+
+  const corkboardScreen = document.querySelector("#corkboard-screen");
+
+  if (!corkboardScreen) {
+    return;
+  }
+
+  const controls = document.createElement("div");
+  controls.className = "mobile-viewer-controls";
+  controls.id = "mobileViewerControls";
+  controls.setAttribute("aria-label", "Viewer controls");
+
+  viewerPreviousFocus = createMobileControlButton("viewerPreviousFocus", "<", "Previous connected block");
+  zoomOutButton = createMobileControlButton("zoomOutButton", "-", "Zoom out");
+  zoomInButton = createMobileControlButton("zoomInButton", "+", "Zoom in");
+  viewerNextFocus = createMobileControlButton("viewerNextFocus", ">", "Next connected block");
+
+  controls.append(viewerPreviousFocus, zoomOutButton, zoomInButton, viewerNextFocus);
+  corkboardScreen.append(controls);
 }
 
 function createId(prefix) {

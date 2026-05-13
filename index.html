@@ -1,125 +1,125 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DR Conspiracy Board Viewer</title>
+    <title>Mapas Mentais™ Feitos Por Mim</title>
     <link rel="stylesheet" href="styles.css?v=mobile-controls-4">
   </head>
   <body class="viewer-mode public-viewer">
     <main class="app-shell">
-      <button class="mode-toggle" id="toggleMode" type="button">Viewer mode</button>
+      <button class="mode-toggle" id="toggleMode" type="button">Modo leitor</button>
 
       <section id="welcome" class="screen welcome-screen" aria-labelledby="welcome-title">
         <div class="welcome-copy">
-          <p class="eyebrow">DR Conspiracy Board</p>
-          <h1 id="welcome-title">Welcome</h1>
+          <p class="eyebrow">Mapas Mentais™ Feitos Por Mim</p>
+          <h1 id="welcome-title">Mapas</h1>
           <form class="new-board-form dev-only" id="newBoardForm">
-            <label for="newBoardName">New corkboard</label>
+            <label for="newBoardName">Novo mapa mental</label>
             <div class="inline-controls">
-              <input id="newBoardName" name="boardName" type="text" autocomplete="off" placeholder="Case name">
-              <button class="primary-button" type="submit">Create</button>
+              <input id="newBoardName" name="boardName" type="text" autocomplete="off" placeholder="Nome do mapa">
+              <button class="primary-button" type="submit">Criar</button>
             </div>
-            <label for="newBoardThumbnail">Thumbnail</label>
+            <label for="newBoardThumbnail">Miniatura</label>
             <input id="newBoardThumbnail" name="boardThumbnail" type="file" accept="image/*">
           </form>
-          <nav class="board-menu" id="boardMenu" aria-label="Choose a corkboard"></nav>
+          <nav class="board-menu" id="boardMenu" aria-label="Escolher mapa mental"></nav>
         </div>
       </section>
 
-      <section id="corkboard-screen" class="screen corkboard-screen" aria-label="Corkboard workspace">
+      <section id="corkboard-screen" class="screen corkboard-screen" aria-label="Área do mapa mental">
         <header class="board-toolbar">
           <div class="toolbar-group">
-            <a class="icon-link" href="#welcome" aria-label="Return to welcome">Back</a>
-            <h2 id="currentBoardName">Corkboard</h2>
+            <a class="icon-link" href="#welcome" aria-label="Voltar para a lista">Voltar</a>
+            <h2 id="currentBoardName">Mapa mental</h2>
           </div>
           <div class="toolbar-group">
-            <button class="icon-link dev-only" id="renameBoardButton" type="button">Rename</button>
-            <button class="icon-link dev-only" id="changeBoardThumbnailButton" type="button">Thumbnail</button>
+            <button class="icon-link dev-only" id="renameBoardButton" type="button">Renomear</button>
+            <button class="icon-link dev-only" id="changeBoardThumbnailButton" type="button">Miniatura</button>
             <input id="boardThumbnailInput" class="hidden-file-input dev-only" type="file" accept="image/*">
-            <button class="icon-link danger-button dev-only" id="deleteBoardButton" type="button">Delete board</button>
-            <button class="icon-link dev-only" id="toggleBlockForm" type="button">Add block</button>
-            <button class="icon-link dev-only" id="toggleConnectMode" type="button">Connect</button>
-            <button class="icon-link dev-only" id="toggleUnconnectMode" type="button">Unconnect</button>
-            <select class="color-select dev-only" id="connectionColor" aria-label="Connection color">
-              <option value="" selected>White</option>
-              <option value="red">Red</option>
-              <option value="orange">Orange</option>
-              <option value="yellow">Yellow</option>
-              <option value="blue">Blue</option>
-              <option value="green">Green</option>
-              <option value="purple">Purple</option>
-              <option value="cyan">Cyan</option>
+            <button class="icon-link danger-button dev-only" id="deleteBoardButton" type="button">Apagar mapa</button>
+            <button class="icon-link dev-only" id="toggleBlockForm" type="button">Adicionar bloco</button>
+            <button class="icon-link dev-only" id="toggleConnectMode" type="button">Conectar</button>
+            <button class="icon-link dev-only" id="toggleUnconnectMode" type="button">Desconectar</button>
+            <select class="color-select dev-only" id="connectionColor" aria-label="Cor da conexão">
+              <option value="" selected>Branco</option>
+              <option value="red">Vermelho</option>
+              <option value="orange">Laranja</option>
+              <option value="yellow">Amarelo</option>
+              <option value="blue">Azul</option>
+              <option value="green">Verde</option>
+              <option value="purple">Roxo</option>
+              <option value="cyan">Ciano</option>
             </select>
-            <button class="icon-link" id="toggleSettings" type="button">Settings</button>
+            <button class="icon-link" id="toggleSettings" type="button">Opções</button>
             <div class="viewer-focus-counter" id="viewerFocusCounter" aria-live="polite" hidden>(1/1)</div>
             <div class="zoom-readout" aria-live="polite">100%</div>
           </div>
         </header>
 
-        <aside class="settings-panel" id="settingsPanel" aria-label="Settings">
+        <aside class="settings-panel" id="settingsPanel" aria-label="Opções">
           <div class="panel-heading">
-            <h3>Settings</h3>
-            <button class="panel-close" id="closeSettings" type="button" aria-label="Close settings">X</button>
+            <h3>Opções</h3>
+            <button class="panel-close" id="closeSettings" type="button" aria-label="Fechar opções">X</button>
           </div>
-          <label for="duplicateLineStyle">Duplicate lines</label>
+          <label for="duplicateLineStyle">Linhas duplicadas</label>
           <select id="duplicateLineStyle">
-            <option value="separate">Separate full lines</option>
-            <option value="dotted">Alternate dotted lines</option>
+            <option value="separate">Linhas separadas</option>
+            <option value="dotted">Alternar linhas pontilhadas</option>
           </select>
           <label class="settings-check">
             <input id="routeAroundBlocks" type="checkbox">
-            <span>Avoid blocks with lines</span>
+            <span>Evitar blocos com as linhas</span>
           </label>
           <label class="settings-check">
             <input id="hideConnections" type="checkbox">
-            <span>Hide connections</span>
+            <span>Esconder conexões</span>
           </label>
           <label class="settings-check">
             <input id="hideConnectionColors" type="checkbox">
-            <span>Hide connection colors</span>
+            <span>Esconder cores das conexões</span>
           </label>
           <label class="settings-check">
             <input id="hideTextColors" type="checkbox">
-            <span>Hide text colors</span>
+            <span>Esconder cores do texto</span>
           </label>
           <label class="settings-check">
             <input id="animateJustificationReveal" type="checkbox" checked>
-            <span>Animate justifications</span>
+            <span>Animar justificativas</span>
           </label>
         </aside>
 
-        <aside class="block-panel" id="blockPanel" aria-label="New block form">
+        <aside class="block-panel" id="blockPanel" aria-label="Formulário de novo bloco">
           <form id="blockForm">
             <div class="panel-heading">
-              <h3 id="blockPanelTitle">New block</h3>
-              <button class="panel-close" id="cancelBlockEdit" type="button" aria-label="Close block form">X</button>
+              <h3 id="blockPanelTitle">Novo bloco</h3>
+              <button class="panel-close" id="cancelBlockEdit" type="button" aria-label="Fechar formulário">X</button>
             </div>
 
-            <label for="blockTitle">Title</label>
-            <input id="blockTitle" name="blockTitle" type="text" autocomplete="off" placeholder="Optional block title">
+            <label for="blockTitle">Título</label>
+            <input id="blockTitle" name="blockTitle" type="text" autocomplete="off" placeholder="Título opcional">
 
-            <label for="blockText">Text</label>
-            <textarea id="blockText" name="blockText" rows="7" placeholder="Woah! cool list&#10;- [red]one cool[/red]&#10;- [orange]two cool[/orange]&#10;- [cyan]three cool[/cyan]"></textarea>
-            <p class="format-note">Use colors like [red]text[/red], sizes like [size:24]text[/size], and Justify on saved blocks.</p>
+            <label for="blockText">Texto</label>
+            <textarea id="blockText" name="blockText" rows="7" placeholder="Lista legal!&#10;- [red]um item[/red]&#10;- [orange]outro item[/orange]&#10;- [cyan]mais um item[/cyan]"></textarea>
+            <p class="format-note">Use cores como [red]texto[/red], tamanhos como [size:24]texto[/size], e Justificar em blocos salvos.</p>
 
             <div class="format-tools">
-              <label for="formatTextInput">Format helper</label>
-              <input id="formatTextInput" type="text" autocomplete="off" placeholder="Text to insert">
+              <label for="formatTextInput">Ajuda de formatação</label>
+              <input id="formatTextInput" type="text" autocomplete="off" placeholder="Texto para inserir">
               <div class="format-row">
-                <select id="formatColorSelect" aria-label="Text color">
-                  <option value="red">Red</option>
-                  <option value="orange">Orange</option>
-                  <option value="yellow">Yellow</option>
-                  <option value="blue">Blue</option>
-                  <option value="green">Green</option>
-                  <option value="purple">Purple</option>
-                  <option value="cyan">Cyan</option>
+                <select id="formatColorSelect" aria-label="Cor do texto">
+                  <option value="red">Vermelho</option>
+                  <option value="orange">Laranja</option>
+                  <option value="yellow">Amarelo</option>
+                  <option value="blue">Azul</option>
+                  <option value="green">Verde</option>
+                  <option value="purple">Roxo</option>
+                  <option value="cyan">Ciano</option>
                 </select>
-                <button class="icon-link" id="insertColorButton" type="button">Color</button>
+                <button class="icon-link" id="insertColorButton" type="button">Cor</button>
               </div>
               <div class="format-row">
-                <select id="formatSizeSelect" aria-label="Font size">
+                <select id="formatSizeSelect" aria-label="Tamanho da fonte">
                   <option value="14">14</option>
                   <option value="18">18</option>
                   <option value="22" selected>22</option>
@@ -127,24 +127,24 @@
                   <option value="36">36</option>
                   <option value="48">48</option>
                 </select>
-                <button class="icon-link" id="insertSizeButton" type="button">Font size</button>
+                <button class="icon-link" id="insertSizeButton" type="button">Tamanho</button>
               </div>
-              <button class="icon-link" id="insertJustifyButton" type="button">Justify</button>
+              <button class="icon-link" id="insertJustifyButton" type="button">Justificar</button>
               <div class="link-builder">
-                <label for="linkBoardSelect">Link target corkboard</label>
+                <label for="linkBoardSelect">Mapa mental de destino</label>
                 <select id="linkBoardSelect"></select>
-                <label for="linkBlockSelect">Specific block</label>
+                <label for="linkBlockSelect">Bloco específico</label>
                 <select id="linkBlockSelect"></select>
-                <button class="icon-link" id="insertLinkButton" type="button">Link to corkboard</button>
+                <button class="icon-link" id="insertLinkButton" type="button">Criar link</button>
               </div>
             </div>
 
-            <label class="file-label" for="blockImage">Image</label>
+            <label class="file-label" for="blockImage">Imagem</label>
             <input id="blockImage" name="blockImage" type="file" accept="image/*">
-            <p class="image-note" id="currentImageNote">Choose an image to add or replace the current image.</p>
+            <p class="image-note" id="currentImageNote">Escolha uma imagem para adicionar ou substituir a imagem atual.</p>
 
-            <button class="danger-button block-delete-action" id="deleteBlockButton" type="button" hidden>Delete block</button>
-            <button class="primary-button" id="blockSubmitButton" type="submit">Place block</button>
+            <button class="danger-button block-delete-action" id="deleteBlockButton" type="button" hidden>Apagar bloco</button>
+            <button class="primary-button" id="blockSubmitButton" type="submit">Colocar bloco</button>
           </form>
         </aside>
 
@@ -152,11 +152,11 @@
           <div class="board" id="board"></div>
         </div>
 
-        <div class="mobile-viewer-controls" id="mobileViewerControls" aria-label="Mobile viewer controls">
-          <button class="mobile-control-button" id="viewerPreviousFocus" type="button" aria-label="Previous connected block" title="Previous connected block">&lt;</button>
-          <button class="mobile-control-button" id="zoomOutButton" type="button" aria-label="Zoom out" title="Zoom out">-</button>
-          <button class="mobile-control-button" id="zoomInButton" type="button" aria-label="Zoom in" title="Zoom in">+</button>
-          <button class="mobile-control-button" id="viewerNextFocus" type="button" aria-label="Next connected block" title="Next connected block">&gt;</button>
+        <div class="mobile-viewer-controls" id="mobileViewerControls" aria-label="Controles móveis de leitura">
+          <button class="mobile-control-button" id="viewerPreviousFocus" type="button" aria-label="Bloco conectado anterior" title="Bloco conectado anterior">&lt;</button>
+          <button class="mobile-control-button" id="zoomOutButton" type="button" aria-label="Diminuir zoom" title="Diminuir zoom">-</button>
+          <button class="mobile-control-button" id="zoomInButton" type="button" aria-label="Aumentar zoom" title="Aumentar zoom">+</button>
+          <button class="mobile-control-button" id="viewerNextFocus" type="button" aria-label="Próximo bloco conectado" title="Próximo bloco conectado">&gt;</button>
         </div>
       </section>
     </main>

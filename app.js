@@ -142,12 +142,12 @@ function ensureMobileViewerControls() {
   const controls = document.createElement("div");
   controls.className = "mobile-viewer-controls";
   controls.id = "mobileViewerControls";
-  controls.setAttribute("aria-label", "Viewer controls");
+  controls.setAttribute("aria-label", "Controles de leitura");
 
-  viewerPreviousFocus = createMobileControlButton("viewerPreviousFocus", "<", "Previous connected block");
-  zoomOutButton = createMobileControlButton("zoomOutButton", "-", "Zoom out");
-  zoomInButton = createMobileControlButton("zoomInButton", "+", "Zoom in");
-  viewerNextFocus = createMobileControlButton("viewerNextFocus", ">", "Next connected block");
+  viewerPreviousFocus = createMobileControlButton("viewerPreviousFocus", "<", "Bloco conectado anterior");
+  zoomOutButton = createMobileControlButton("zoomOutButton", "-", "Diminuir zoom");
+  zoomInButton = createMobileControlButton("zoomInButton", "+", "Aumentar zoom");
+  viewerNextFocus = createMobileControlButton("viewerNextFocus", ">", "Próximo bloco conectado");
 
   controls.append(viewerPreviousFocus, zoomOutButton, zoomInButton, viewerNextFocus);
   corkboardScreen.append(controls);
@@ -173,7 +173,7 @@ function createFallbackData() {
     boards: [
       {
         id: "board-first-case",
-        name: "First Case",
+        name: "Primeiro Mapa",
         blocks: [],
         connections: [],
       },
@@ -195,7 +195,7 @@ async function loadData() {
       return saved;
     }
   } catch (error) {
-    console.warn("Could not load published corkboards.", error);
+    console.warn("Não foi possível carregar os mapas mentais publicados.", error);
   }
 
   return createFallbackData();
@@ -230,7 +230,7 @@ function loadJustificationAnimation() {
 }
 
 function saveData() {
-  // Published viewer data is read-only. The local editor owns board saves.
+  // Os dados publicados são somente leitura. O editor local cuida dos salvamentos.
 }
 
 function getCurrentBoard() {
@@ -579,7 +579,7 @@ function renderBoardMenu() {
   if (!state.data.boards.length) {
     const emptyMessage = document.createElement("span");
     emptyMessage.className = "empty-board-list";
-    emptyMessage.textContent = "No corkboards yet.";
+    emptyMessage.textContent = "Nenhum mapa mental ainda.";
     boardMenu.append(emptyMessage);
     populateLinkBuilder();
     return;
@@ -603,20 +603,20 @@ function renderBoardMenu() {
       image.alt = `${item.name} thumbnail`;
       thumbnail.append(image);
     } else {
-      thumbnail.textContent = "No image";
+      thumbnail.textContent = "Sem imagem";
     }
 
     boardMeta.className = "board-tile-meta";
     boardName.textContent = item.name;
-    boardCount.textContent = `${blockCount} block${blockCount === 1 ? "" : "s"}`;
+    boardCount.textContent = `${blockCount} bloco${blockCount === 1 ? "" : "s"}`;
     boardMeta.append(boardName, boardCount);
     link.append(thumbnail, boardMeta);
 
     const deleteButton = document.createElement("button");
     deleteButton.className = "board-delete-button danger-button dev-only";
     deleteButton.type = "button";
-    deleteButton.textContent = "Delete";
-    deleteButton.setAttribute("aria-label", `Delete ${item.name}`);
+    deleteButton.textContent = "Apagar";
+    deleteButton.setAttribute("aria-label", `Apagar ${item.name}`);
     deleteButton.addEventListener("click", () => {
       deleteBoardById(item.id);
     });
@@ -636,7 +636,7 @@ function renderBoard() {
   zoomInButton.disabled = state.scale >= maxZoom - 0.001;
 
   const currentBoard = getCurrentBoard();
-  currentBoardName.textContent = currentBoard ? currentBoard.name : "Corkboard";
+  currentBoardName.textContent = currentBoard ? currentBoard.name : "Mapa mental";
 }
 
 function renderBlocks() {
@@ -752,17 +752,17 @@ function renderBlocks() {
       const resizeHandle = document.createElement("button");
       resizeHandle.className = "resize-handle";
       resizeHandle.type = "button";
-      resizeHandle.setAttribute("aria-label", "Resize block");
+      resizeHandle.setAttribute("aria-label", "Redimensionar bloco");
 
       const editButton = document.createElement("button");
       editButton.className = "edit-block-button";
       editButton.type = "button";
-      editButton.setAttribute("aria-label", "Edit block");
+      editButton.setAttribute("aria-label", "Editar bloco");
 
       const deleteButton = document.createElement("button");
       deleteButton.className = "delete-block-button";
       deleteButton.type = "button";
-      deleteButton.setAttribute("aria-label", "Delete block");
+      deleteButton.setAttribute("aria-label", "Apagar bloco");
 
       card.append(deleteButton, editButton, resizeHandle);
     }
@@ -1439,10 +1439,10 @@ function resetBlockForm() {
   state.editPreview = null;
   state.pendingJustificationBlocks = [];
   blockForm.reset();
-  blockPanelTitle.textContent = "New block";
-  blockSubmitButton.textContent = "Place block";
+  blockPanelTitle.textContent = "Novo bloco";
+  blockSubmitButton.textContent = "Colocar bloco";
   deleteBlockButton.hidden = true;
-  currentImageNote.textContent = "Choose an image to add or replace the current image.";
+  currentImageNote.textContent = "Escolha uma imagem para adicionar ou substituir a imagem atual.";
   populateLinkBuilder();
   renderBlocks();
 }
@@ -1471,12 +1471,12 @@ function openEditBlockForm(blockId) {
   blockForm.reset();
   blockTitle.value = block.title || "";
   blockText.value = block.text || "";
-  blockPanelTitle.textContent = "Edit block";
-  blockSubmitButton.textContent = "Save changes";
+  blockPanelTitle.textContent = "Editar bloco";
+  blockSubmitButton.textContent = "Salvar alterações";
   deleteBlockButton.hidden = false;
   currentImageNote.textContent = block.image
-    ? `Current image: ${block.imageName || "attached image"}. Choose another file to replace it.`
-    : "No current image. Choose a file to add one.";
+    ? `Imagem atual: ${block.imageName || "imagem anexada"}. Escolha outro arquivo para substituir.`
+    : "Sem imagem atual. Escolha um arquivo para adicionar uma.";
   settingsPanel.classList.remove("is-open");
   toggleSettings.classList.remove("is-active");
   blockPanel.classList.add("is-open");
@@ -1533,7 +1533,7 @@ function hasUnsavedBlockFormChanges() {
 
 function confirmDiscardBlockFormChanges() {
   return !hasUnsavedBlockFormChanges()
-    || confirm("You have unsaved changes. Are you sure you want to quit?");
+    || confirm("Você tem alterações não salvas. Tem certeza que quer sair?");
 }
 
 function closeBlockForm({ confirmUnsaved = true } = {}) {
@@ -1548,7 +1548,7 @@ function closeBlockForm({ confirmUnsaved = true } = {}) {
 
 function syncModeUi() {
   document.body.classList.toggle("viewer-mode", state.viewerMode);
-  toggleMode.textContent = state.viewerMode ? "Dev mode" : "Viewer mode";
+  toggleMode.textContent = state.viewerMode ? "Modo edição" : "Modo leitor";
 }
 
 function syncSettingsUi() {
@@ -1600,7 +1600,7 @@ function populateLinkBlockOptions() {
 
   const boardOnlyOption = document.createElement("option");
   boardOnlyOption.value = "";
-  boardOnlyOption.textContent = "Whole board";
+  boardOnlyOption.textContent = "Mapa inteiro";
   linkBlockSelect.append(boardOnlyOption);
 
   if (!targetBoard) {
@@ -1628,7 +1628,7 @@ function getBlockLabel(blockItem, index = 0) {
     .replace(/\s+/g, " ")
     .trim();
 
-  return plainText ? plainText.slice(0, 32) : `Block ${index + 1}`;
+  return plainText ? plainText.slice(0, 32) : `Bloco ${index + 1}`;
 }
 
 function insertAtCursor(input, text) {
@@ -1645,7 +1645,7 @@ function insertWrappedText(openTag, closeTag) {
   const end = blockText.selectionEnd ?? blockText.value.length;
   const selectedText = blockText.value.slice(start, end);
   const helperText = formatTextInput.value.trim();
-  const innerText = selectedText || helperText || "text";
+  const innerText = selectedText || helperText || "texto";
   const insertText = `${openTag}${innerText}${closeTag}`;
 
   blockText.value = `${blockText.value.slice(0, start)}${insertText}${blockText.value.slice(end)}`;
@@ -1660,7 +1660,7 @@ function createJustificationBlock() {
   const sourceBlock = findBlockById(state.editingBlockId);
 
   if (!currentBoard || !sourceBlock) {
-    alert("Save the block first, then edit it to add a justification.");
+    alert("Salve o bloco primeiro, depois edite para adicionar uma justificativa.");
     return;
   }
 
@@ -1668,7 +1668,7 @@ function createJustificationBlock() {
   const end = blockText.selectionEnd ?? blockText.value.length;
   const selectedText = blockText.value.slice(start, end).trim();
   const helperText = formatTextInput.value.trim();
-  const label = selectedText || helperText || "justified text";
+  const label = selectedText || helperText || "texto justificado";
   const justificationId = createId("justification");
   const sourceWidth = sourceBlock.width || 430;
   const sourceHeight = sourceBlock.height || 190;
@@ -1682,7 +1682,7 @@ function createJustificationBlock() {
     isPendingJustification: true,
     justificationFor: sourceBlock.id,
     text: "Add the supporting evidence here.",
-    title: `Justification: ${titleText}`,
+    title: `Justificativa: ${titleText}`,
     width: 390,
     x: sourceBlock.x + sourceWidth + 70,
     y: sourceBlock.y + sourceHeight / 2 - 95,
@@ -1829,7 +1829,7 @@ function renameCurrentBoard() {
     return;
   }
 
-  const nextName = prompt("Rename this corkboard:", currentBoard.name);
+  const nextName = prompt("Renomear este mapa mental:", currentBoard.name);
 
   if (!nextName || !nextName.trim()) {
     return;
@@ -1865,7 +1865,7 @@ function closeFloatingPanels() {
   state.selectedConnectionBlockIds = [];
   state.draggedBlock = null;
   state.resizedBlock = null;
-  toggleConnectMode.textContent = "Connect";
+  toggleConnectMode.textContent = "Conectar";
   toggleConnectMode.classList.remove("is-active");
   toggleUnconnectMode.classList.remove("is-active");
   connectionColor.disabled = false;
@@ -1882,7 +1882,7 @@ function deleteBoardById(boardId) {
   const boardItem = state.data.boards[boardIndex];
   const blockCount = Array.isArray(boardItem.blocks) ? boardItem.blocks.length : 0;
   const shouldDelete = confirm(
-    `Delete corkboard "${boardItem.name}"? This also deletes ${blockCount} block${blockCount === 1 ? "" : "s"} and every connection on it.`,
+    `Apagar o mapa mental "${boardItem.name}"? Isso também apaga ${blockCount} bloco${blockCount === 1 ? "" : "s"} e todas as conexões dele.`,
   );
 
   if (!shouldDelete) {
@@ -1945,12 +1945,12 @@ function deleteBlockById(blockId) {
     .filter((connection) => (connection.blockIds || []).some((connectionBlockId) => deletedBlockIds.has(connectionBlockId)))
     .length;
   const connectionText = connectionCount
-    ? ` This also removes ${connectionCount} connection${connectionCount === 1 ? "" : "s"}.`
+    ? ` Isso também remove ${connectionCount} ${connectionCount === 1 ? "conexão" : "conexões"}.`
     : "";
   const justificationText = relatedJustificationIds.length
-    ? ` This also removes ${relatedJustificationIds.length} hidden justification block${relatedJustificationIds.length === 1 ? "" : "s"}.`
+    ? ` Isso também remove ${relatedJustificationIds.length} bloco${relatedJustificationIds.length === 1 ? "" : "s"} oculto${relatedJustificationIds.length === 1 ? "" : "s"} de justificativa.`
     : "";
-  const shouldDelete = confirm(`Delete block "${blockLabel}"?${connectionText}${justificationText}`);
+  const shouldDelete = confirm(`Apagar o bloco "${blockLabel}"?${connectionText}${justificationText}`);
 
   if (!shouldDelete) {
     return;
@@ -2009,7 +2009,7 @@ function setConnectionMode(isActive) {
   state.connectionMode = isActive;
   state.unconnectMode = false;
   state.selectedConnectionBlockIds = [];
-  toggleConnectMode.textContent = isActive ? "Stop" : "Connect";
+  toggleConnectMode.textContent = isActive ? "Parar" : "Conectar";
   toggleConnectMode.classList.toggle("is-active", isActive);
   toggleUnconnectMode.classList.remove("is-active");
   connectionColor.disabled = false;
@@ -2021,7 +2021,7 @@ function setUnconnectMode(isActive) {
   state.connectionMode = false;
   state.selectedConnectionBlockIds = [];
   toggleUnconnectMode.classList.toggle("is-active", isActive);
-  toggleConnectMode.textContent = "Connect";
+  toggleConnectMode.textContent = "Conectar";
   toggleConnectMode.classList.remove("is-active");
   connectionColor.disabled = false;
   renderBlocks();
@@ -2074,7 +2074,7 @@ function deleteConnection(connectionId) {
 newBoardForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const name = newBoardName.value.trim() || "Untitled Case";
+  const name = newBoardName.value.trim() || "Mapa sem título";
   const thumbnailFile = newBoardThumbnail.files[0];
   const boardItem = {
     id: createId("board"),

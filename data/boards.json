@@ -64,7 +64,7 @@
           "height": 368.54545454545485,
           "image": "images/board-1778112994357-675f07775fdbc/colonia-coral-jpg.jpg",
           "imageName": "COLONIA coral.jpg",
-          "text": "Col\u00f4nias s\u00e3o uma rela\u00e7\u00e3o [green]harm\u00f4nica[/green], [blue]intraespec\u00edfica[/blue]. (+, +)\nExistem dois tipos de col\u00f4nias, por\u00e9m as caracter\u00edsticas semelhantes e necess\u00e1rias entre elas s\u00e3o:\n- A uni\u00e3o f\u00edsica, ou seja, todos os membros s\u00e3o grudados uns aos outros, anatomicamente\n- N\u00e3o separa\u00e7\u00e3o, onde se separados, indiv\u00edduos sozinhos n\u00e3o ir\u00e3o sobreviver\n- Benef\u00edcio m\u00fatuo, onde todos os indiv\u00edduos involvidos na col\u00f4nia s\u00e3o beneficiados\n\nOs dois tipos diferentes s\u00e3o:\n- Isom\u00f3rficas: Representadas na imagem, onde todos os seres s\u00e3o anatomicamente iguais e exercem as mesmas fun\u00e7\u00f5es (ex. Corais)\n- Heterom\u00f3rficas: Onde os indiv\u00edduos s\u00e3o anatomicamente diferentes e exercem fun\u00e7\u00f5es distintas na col\u00f4nia [justify:justification-1778115830349-16d49e2d05f178](Ex. Caravelas)[/justify]",
+          "text": "Col\u00f4nias s\u00e3o uma rela\u00e7\u00e3o [green]harm\u00f4nica[/green], [blue]intraespec\u00edfica[/blue]. (+, +)\nExistem dois tipos de col\u00f4nias, por\u00e9m as caracter\u00edsticas semelhantes e necess\u00e1rias entre elas s\u00e3o:\n- A uni\u00e3o f\u00edsica, ou seja, todos os membros s\u00e3o grudados uns aos outros, anatomicamente\n- Benef\u00edcio m\u00fatuo, onde todos os indiv\u00edduos involvidos na col\u00f4nia s\u00e3o beneficiados\n\nOs dois tipos diferentes s\u00e3o:\n- Isom\u00f3rficas: Representadas na imagem, onde todos os seres s\u00e3o anatomicamente iguais e exercem as mesmas fun\u00e7\u00f5es (ex. Corais)\n- Heterom\u00f3rficas: Onde os indiv\u00edduos s\u00e3o anatomicamente diferentes e exercem fun\u00e7\u00f5es distintas na col\u00f4nia [justify:justification-1778115830349-16d49e2d05f178](Ex. Caravelas)[/justify]",
           "title": "Col\u00f4nias",
           "width": 944.5454545454543,
           "x": -108.1060660615599,
@@ -510,6 +510,251 @@
       ],
       "thumbnail": "images/board-1778112994357-675f07775fdbc/thumbnail.png",
       "thumbnailName": "relacoes.png"
+    },
+    {
+      "id": "board-1778641320794-25e5962a81429",
+      "name": "Sistema Nervoso",
+      "blocks": [
+        {
+          "id": "block-1778641372768-75bb4b78745c1",
+          "height": 629.5959595959591,
+          "image": "images/board-1778641320794-25e5962a81429/nervoso-webp.webp",
+          "imageName": "nervoso.webp",
+          "text": "O Sistema Nervoso diz respeito ao sistema que engloba o enc\u00e9falo (c\u00e9rebro, cerebelo, tronco encef\u00e1lico), a medula espinhal, os nervos e os g\u00e2nglios.\nO Sistema Nervoso \u00e9 dividido entre duas classifica\u00e7\u00f5es, o Sistema Nervoso Central (SNC), e o Sistema Nervoso Perif\u00e9rico (SNP).\nA principal fun\u00e7\u00e3o do Sistema Nervoso Central \u00e9 de processar informa\u00e7\u00f5es e coordenar fun\u00e7\u00f5es, enquanto a do Sistema Nervoso Perif\u00e9rico \u00e9 de conectar o resto do corpo ao SNC, transmitindo impulsos nervosos do corpo para o SNC e vice-versa.\nO Sistema Nervoso Central engloba:\n- O c\u00e9rebro, com fun\u00e7\u00e3o de controlar a mem\u00f3ria, emo\u00e7\u00f5es e movimentos volunt\u00e1rios.\n- O cerebelo, que coordena o equil\u00edbrio e movimentos precisos.\n- O tronco encef\u00e1lico, que controla os batimentos card\u00edacos e respira\u00e7\u00e3o\n- A med\u00fala espinhal, que conecta o corpo ao c\u00e9rebro e coordena reflexos r\u00e1pidos\n\nO Sistema Nervoso Perif\u00e9rico engloba:\n- G\u00e2nglios\n- Nervos\n\nO SNP tem duas classifica\u00e7\u00f5es:\n- Sistema Nervoso Som\u00e2ntico: Controla a\u00e7\u00f5es volunt\u00e1rias, como m\u00fasuclos esquel\u00e9ticos\n- Sistema Nervoso Aut\u00f4nomo: Controla a\u00e7\u00f5es involunt\u00e1rias, como as de v\u00edsceras ou gl\u00e2ndulas.",
+          "title": "Sistema Nervoso",
+          "width": 860.3030303030306,
+          "x": 1358.2738095238067,
+          "y": 982.623015873016
+        },
+        {
+          "id": "block-1778642731777-d506ba9a07dc88",
+          "height": 417.93650793650767,
+          "image": "",
+          "imageName": "",
+          "text": "Neur\u00f4nios s\u00e3o c\u00e9lulas fundamentais para o Sistema Nervoso, sendo respons\u00e1veis por receber, processar e transmitir informa\u00e7\u00f5es atrav\u00e9s de sinais el\u00e9tricos e qu\u00edmicos.\nSua estrutura \u00e9 a seguinte:\n- Corpo: cont\u00e9m o n\u00facleo, mitoc\u00f4ndria e outras estruturas importantes para a c\u00e9lula\n- Dendritos: ramifica\u00e7\u00f5es que recebem sinais de outros neur\u00f4nios, tal como \"antenas\"\n- Ax\u00f4nio: uma extens\u00e3o longa que conduz o impulso nervoso para longe do corpo celular. Ele leva a mensagem at\u00e9 outro neur\u00f4nio, m\u00fasculo ou gl\u00e2ndula\n- Bainha de mielina: camada lip\u00eddica que envolve partes do ax\u00f4nio, funcionando como um isolador el\u00e9trico, ajudando a corrente a passar\n- Nodo de Ranvier: s\u00f3 pequenos espa\u00e7\u00f5s entre o Ax\u00f4nio, onde a corrente pula para o resto dele\n- C\u00e9lula de Schwann, acreditada a ser envolvida na produ\u00e7\u00e3o/repara\u00e7\u00e3o da Bainha de Mielina\n- Terminal do Ax\u00f4nio: a ponta final do ax\u00f4nio. Ele libera subst\u00e2ncias qu\u00edmicas chamadas neurotransmissores, que passam a mensagem para outra c\u00e9lula",
+          "title": "Estrutura de Um Neur\u00f4nio",
+          "width": 603.0158730158726,
+          "x": 406.3511211011239,
+          "y": 1608.6233766233738
+        },
+        {
+          "id": "block-1778642743801-c6aa0829a52ec",
+          "height": 441.8181818181845,
+          "image": "images/board-1778641320794-25e5962a81429/sla-png.png",
+          "imageName": "sla.png",
+          "text": "",
+          "title": "",
+          "width": 681.818181818182,
+          "x": 351.2014097014084,
+          "y": 1120.210678210678
+        },
+        {
+          "id": "block-1778643811539-f421b896a63618",
+          "height": 437.84090909091105,
+          "image": "",
+          "imageName": "",
+          "text": "Para transferir informa\u00e7\u00f5es entre neur\u00f4nios, \u00e9 necess\u00e1rio a transi\u00e7\u00e3o de impulsos nervosos.\nOs passos do processo s\u00e3o a seguinte:\n- 1: Os dendritos recebem o est\u00edmulo de outro neur\u00f4nio, que chega ao corpo celular, e se forte o suficiente, o neur\u00f4nio dispara um impulso nervoso\n- 2: Esse impulso come\u00e7a no in\u00edcio do ax\u00f4nio e segue at\u00e9 o terminal do ax\u00f4nio. Ele acontece por causa da entrada e sa\u00edda de \u00edons, principalmente s\u00f3dio e pot\u00e1ssio, pela membrana do neur\u00f4nio.\nQuando em repouso, o interior do neur\u00f4nio \u00e9 mais negativo que o exterior. Isso \u00e9 explicado atrav\u00e9s do impulso, que quando come\u00e7a, canais da membrana se abrem e o s\u00f3dio entra no neur\u00f4nio, deixando a regi\u00e3o mas positiva. Essa mudan\u00e7a el\u00e9trica estimula a pr\u00f3xima parte do ax\u00f4nio a fazer a mesma coisa, criando uma sequ\u00eancia.\nAp\u00eds isso, o pot\u00e1ssio sai da c\u00e9lula, fazendo aquela regi\u00e3o voltar ao estado de repouso. Assim, o impulso n\u00e3o \u00e9 parado, ele vai passando de trecho em trecho pelo ax\u00f4nio.\nA presen\u00e7a da Bainha de Mielina apressa esse processo, e o deixa m\u00e1is eficiente, devido  \u00e0 Condu\u00e7\u00e3o Saltat\u00f3ria. Gra\u00e7as ao isolamento da Bainha de Mielina, a carga el\u00e9trica consegue \"saltar\" entre Nodos de Ranvier.\nQuando o impulso chega ao terminal do ax\u00f4nio, ele provoca a libera\u00e7\u00e3o de subst\u00e2ncias chamadas neurotransmissores. Esses neurotransmissores atravessam a pequena regi\u00e3o entre um neur\u00f4nio e outro, chamada sinapse, e passam a mensagem para a pr\u00f3xima c\u00e9lula.",
+          "title": "Transi\u00e7\u00e3o dos Impulsos Nervosos ao Longo do Neur\u00f4nio",
+          "width": 816.1363636363636,
+          "x": 264.518592518591,
+          "y": 626.8967421467435
+        },
+        {
+          "id": "block-1778644022016-1f26132ef9b44",
+          "height": 285.625,
+          "image": "",
+          "imageName": "",
+          "text": "Meninges s\u00e3o membranas que protegem o Sistema Nervoso Central, sendo elas o enc\u00e9falo e a medula espinhal.\nExistem tr\u00eas camadas:\n- Dura-M\u00e1ter: A camada mais externa e resistente, a mais pr\u00f3xima do cr\u00e2nio e da coluna vertebral\n- Aracnoide: A camada do meio, que tem esse nome por sua semelhan\u00e7a \u00e0 uma teia de aranha. Entre ela e a pia-m\u00e1ter, circula o l\u00edquido cefalorraquidiano, tamb\u00e9m chamado de liquor\n- Pia-M\u00e1ter: A camada mais interna e delicada, grudada diretamente no enc\u00e9falo e na medula espinhal",
+          "title": "Meninges",
+          "width": 528.125,
+          "x": 2443.9707930957925,
+          "y": 787.002442002442
+        },
+        {
+          "id": "block-1778644446999-5dad055db323d8",
+          "height": 248.75,
+          "image": "",
+          "imageName": "",
+          "text": "O liquor, ou LCR, \u00e9 um l\u00edquido transparente que circula ao redor do enc\u00e9falo e da medula espinhal, que serve para proteger o sistema nervoso, como um amortecedor.\nO c\u00e9rebro essencialmente flutua nesse l\u00edquido, que tamb\u00e9m reduz a press\u00e3o sob estruturas nervosas\nCertos agentes invasores s\u00e3o parados pela LCR\nO LCR tamb\u00e9m pode levar nutrientes e remover res\u00edduos, deixando o ambente do sistema nervoso mais equilibrado",
+          "title": "Liquor / L\u00edquido Cefalorraquidiano",
+          "width": 525,
+          "x": 1838.5966810966838,
+          "y": 519.1636002885999
+        },
+        {
+          "id": "block-1778645179089-57b003647843c8",
+          "height": 414.4285714285696,
+          "image": "images/board-1778641320794-25e5962a81429/paia-png.png",
+          "imageName": "paia.png",
+          "text": "",
+          "title": "",
+          "width": 750.1428571428546,
+          "x": 2396.4285714285693,
+          "y": 333.85714285714266
+        },
+        {
+          "id": "block-1778645406588-ebb434bee71f88",
+          "height": 341.1111111111114,
+          "image": "images/board-1778641320794-25e5962a81429/nevero-jpg.jpg",
+          "imageName": "nevero.jpg",
+          "text": "",
+          "title": "",
+          "width": 735.5555555555561,
+          "x": 2002.3333333333328,
+          "y": 1824.166666666666
+        },
+        {
+          "id": "block-1778645463400-962b933778d778",
+          "height": 219.99999999999983,
+          "image": "",
+          "imageName": "",
+          "text": "Nervos Sensitivos, ou Nervos Aferentes s\u00e3o aqueles que transmitem informa\u00e7\u00f5es dos \u00f3rg\u00e3os sensoriais do corpo para o SNC, captando est\u00edmulos como tato, dor e temperatura.\nNervos Motores, ou Nervos Eferentes levam comandos do SNC para m\u00fasculos e gl\u00e2ndulas, resultando em a\u00e7\u00f5es.\nNervos Mistos cont\u00eam ambas as fibras, ou seja, tanto captam est\u00edmuos quanto conduzem respostas, sendo o tipo mais comum de nervos.",
+          "title": "Nervos Sensitivos / Motores",
+          "width": 639.2307692307689,
+          "x": 1298.1317016317023,
+          "y": 1902.1688034188016
+        },
+        {
+          "id": "block-1778645591632-49f8f587559af",
+          "height": 433.19444444444576,
+          "image": "images/board-1778641320794-25e5962a81429/cerebro-jpg.jpg",
+          "imageName": "cerebro.jpg",
+          "text": "",
+          "title": "",
+          "width": 560.3968253968222,
+          "x": 3065.8738761238715,
+          "y": 1187.2660672660681
+        },
+        {
+          "id": "block-1778645951758-a8b38212c6a0c8",
+          "height": 371.4285714285715,
+          "image": "",
+          "imageName": "",
+          "text": "Diversas estruturas do SNC incluem:\n- C\u00e9rebro: respons\u00e1vel pelas fun\u00e7\u00f5es mais complexas, como pensamento, mem\u00f3ria, linguagem, emo\u00e7\u00f5es, interpreta\u00e7\u00e3o de sentidos, momentos volunt\u00e1rios, fala, escrita, e at\u00e9 como andar\n- Cerebelo: Localizado na parte de tr\u00e1s e inferior ao enc\u00e9falo, sua principal fun\u00e7\u00e3o \u00e9 de coordenar os movimentos, equil\u00edbrio, postura e precis\u00e3o motor, como por exemplo, em uma corda bamba, ou at\u00e9 em dan\u00e7a\n- Ponte: faz parte do tronco encef\u00e1lico, funcionando como uma \u00e1rea de passagem e comunica\u00e7\u00e3o entre o c\u00e9rebro, cerebelo e diversas outras partes do sistema nervoso. A ponte tamb\u00e9m participa do controle da respira\u00e7\u00e3o e de certas fun\u00e7\u00f5es relacionadas ao sono\n- Bulbo: faz parte do tronco encef\u00e1lico com a ponte, onde ele \u00e9 essencial para a vida, j\u00e1 que controla fun\u00e7\u00f5es autom\u00e1ticas, tal como a respira\u00e7\u00e3o, a press\u00e3o arterial, a degluti\u00e7\u00e3o, tosse, v\u00f4mito, espirro e batimentos card\u00edacos[goto:board-1778112994357-675f07775fdbc]Rela\u00e7\u00f5es Ecol\u00f3gicas[/goto]",
+          "title": "C\u00e9rebro, Cerebelo, Ponte e Bulbo",
+          "width": 631.4285714285713,
+          "x": 2402.969114219116,
+          "y": 1282.7382894882885
+        }
+      ],
+      "connections": [
+        {
+          "id": "connection-1778645997022-9c1b64efd169c8",
+          "blockIds": [
+            "block-1778641372768-75bb4b78745c1",
+            "block-1778642731777-d506ba9a07dc88"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646003183-ec4c9c65b088",
+          "blockIds": [
+            "block-1778643811539-f421b896a63618",
+            "block-1778641372768-75bb4b78745c1"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646009055-d64d9cea1362e8",
+          "blockIds": [
+            "block-1778645463400-962b933778d778",
+            "block-1778641372768-75bb4b78745c1"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646012575-94992b5c81f138",
+          "blockIds": [
+            "block-1778645951758-a8b38212c6a0c8",
+            "block-1778641372768-75bb4b78745c1"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646014446-4d587a6d1cf188",
+          "blockIds": [
+            "block-1778644022016-1f26132ef9b44",
+            "block-1778641372768-75bb4b78745c1"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646023007-a3836f4ec2dd2",
+          "blockIds": [
+            "block-1778644022016-1f26132ef9b44",
+            "block-1778644446999-5dad055db323d8"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646026030-59d32ff88e7db8",
+          "blockIds": [
+            "block-1778644446999-5dad055db323d8",
+            "block-1778645179089-57b003647843c8"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646026735-5b8ad6a8cff9e8",
+          "blockIds": [
+            "block-1778645179089-57b003647843c8",
+            "block-1778644022016-1f26132ef9b44"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646030423-03df2477f7b7c8",
+          "blockIds": [
+            "block-1778645951758-a8b38212c6a0c8",
+            "block-1778645591632-49f8f587559af"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646033758-4319d39983a908",
+          "blockIds": [
+            "block-1778645463400-962b933778d778",
+            "block-1778645406588-ebb434bee71f88"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646037398-804f26f7a753c",
+          "blockIds": [
+            "block-1778642743801-c6aa0829a52ec",
+            "block-1778642731777-d506ba9a07dc88"
+          ],
+          "color": ""
+        },
+        {
+          "id": "connection-1778646039550-737739e1c05bd8",
+          "blockIds": [
+            "block-1778642743801-c6aa0829a52ec",
+            "block-1778643811539-f421b896a63618"
+          ],
+          "color": ""
+        }
+      ],
+      "thumbnail": "images/board-1778641320794-25e5962a81429/thumbnail.webp",
+      "thumbnailName": "nervoso.webp",
+      "textColorRules": [
+        {
+          "phrase": "Sistema Nervoso Central",
+          "color": "red"
+        },
+        {
+          "phrase": "Sistema Nervoso Perif\u00e9rico",
+          "color": "cyan"
+        },
+        {
+          "phrase": "SNC",
+          "color": "red"
+        },
+        {
+          "phrase": "SNP",
+          "color": "cyan"
+        }
+      ]
     }
   ]
 }

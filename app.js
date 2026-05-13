@@ -63,6 +63,7 @@ const minZoom = 0.3;
 const maxZoom = 3;
 const wheelZoomStep = 0.1;
 const buttonZoomStep = 0.2;
+const cardDragStartThreshold = 6;
 
 ensureMobileViewerControls();
 
@@ -1067,6 +1068,13 @@ function startPinchZoom() {
     distance,
     scale: state.scale,
   };
+
+  state.boardPointers.forEach((pointer, pointerId) => {
+    state.boardPointers.set(pointerId, {
+      ...pointer,
+      hasDraggedBoard: true,
+    });
+  });
 }
 
 function setZoomAtPoint(nextScale, pointerX = viewport.clientWidth / 2, pointerY = viewport.clientHeight / 2) {
@@ -1118,6 +1126,9 @@ function startBoardDrag(event) {
 
   state.boardPointers.set(event.pointerId, {
     ...pointer,
+    hasDraggedBoard: !startedOnCard,
+    startX: pointer.x,
+    startY: pointer.y,
     startedOnCard,
   });
 
@@ -1129,14 +1140,11 @@ function startBoardDrag(event) {
     return;
   }
 
-  state.isDraggingBoard = !startedOnCard;
+  state.isDraggingBoard = true;
   state.lastX = pointer.x;
   state.lastY = pointer.y;
   viewport.classList.add("is-dragging");
-
-  if (!startedOnCard) {
-    viewport.setPointerCapture(event.pointerId);
-  }
+  viewport.setPointerCapture(event.pointerId);
 }
 
 function dragBoard(event) {
@@ -1148,6 +1156,9 @@ function dragBoard(event) {
   const pointer = getViewportPoint(event);
   state.boardPointers.set(event.pointerId, {
     ...pointer,
+    hasDraggedBoard: previousPointer.hasDraggedBoard,
+    startX: previousPointer.startX,
+    startY: previousPointer.startY,
     startedOnCard: previousPointer.startedOnCard,
   });
 
@@ -1168,6 +1179,25 @@ function dragBoard(event) {
 
   if (!state.isDraggingBoard) {
     return;
+  }
+
+  if (previousPointer.startedOnCard && !previousPointer.hasDraggedBoard) {
+    const movement = Math.hypot(pointer.x - previousPointer.startX, pointer.y - previousPointer.startY);
+
+    if (movement < cardDragStartThreshold) {
+      state.lastX = pointer.x;
+      state.lastY = pointer.y;
+      return;
+    }
+
+    state.boardPointers.set(event.pointerId, {
+      ...pointer,
+      hasDraggedBoard: true,
+      startX: previousPointer.startX,
+      startY: previousPointer.startY,
+      startedOnCard: previousPointer.startedOnCard,
+    });
+    setSuppressNextBoardClick();
   }
 
   state.x += pointer.x - state.lastX;
@@ -1193,7 +1223,7 @@ function stopBoardDrag(event) {
 
   if (state.boardPointers.size === 1) {
     const [remainingPointer] = state.boardPointers.values();
-    state.isDraggingBoard = !remainingPointer.startedOnCard;
+    state.isDraggingBoard = true;
     state.lastX = remainingPointer.x;
     state.lastY = remainingPointer.y;
     return;

@@ -54,6 +54,15 @@ const insertSizeButton = document.querySelector("#insertSizeButton");
 const insertJustifyButton = document.querySelector("#insertJustifyButton");
 const insertLinkButton = document.querySelector("#insertLinkButton");
 const viewerFocusCounter = document.querySelector("#viewerFocusCounter");
+const viewerPreviousFocus = document.querySelector("#viewerPreviousFocus");
+const viewerNextFocus = document.querySelector("#viewerNextFocus");
+const zoomOutButton = document.querySelector("#zoomOutButton");
+const zoomInButton = document.querySelector("#zoomInButton");
+
+const minZoom = 0.3;
+const maxZoom = 3;
+const wheelZoomStep = 0.1;
+const buttonZoomStep = 0.2;
 
 const colorValues = {
   red: "#ff0000",
@@ -79,7 +88,9 @@ const state = {
   hideConnections: loadHideConnections(),
   hideTextColors: loadHideTextColors(),
   isDraggingBoard: false,
+  boardPointers: new Map(),
   pendingJustificationBlocks: [],
+  pinchZoom: null,
   revealedJustificationBlockIds: [],
   resizedBlock: null,
   selectedConnectionBlockIds: [],
@@ -580,6 +591,8 @@ function renderBoardMenu() {
 function renderBoard() {
   board.style.transform = `translate(${state.x}px, ${state.y}px) scale(${state.scale})`;
   zoomReadout.textContent = `${Math.round(state.scale * 100)}%`;
+  zoomOutButton.disabled = state.scale <= minZoom + 0.001;
+  zoomInButton.disabled = state.scale >= maxZoom - 0.001;
 
   const currentBoard = getCurrentBoard();
   currentBoardName.textContent = currentBoard ? currentBoard.name : "Corkboard";
@@ -973,6 +986,65 @@ function centerBoard() {
   renderBoard();
 }
 
+function getViewportPoint(event) {
+  const rect = viewport.getBoundingClientRect();
+
+  return {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top,
+  };
+}
+
+function getPointerDistance(first, second) {
+  return Math.hypot(second.x - first.x, second.y - first.y);
+}
+
+function getPointerMidpoint(first, second) {
+  return {
+    x: (first.x + second.x) / 2,
+    y: (first.y + second.y) / 2,
+  };
+}
+
+function getBoardPointerPair() {
+  return [...state.boardPointers.values()].slice(0, 2);
+}
+
+function startPinchZoom() {
+  const [first, second] = getBoardPointerPair();
+
+  if (!first || !second) {
+    state.pinchZoom = null;
+    return;
+  }
+
+  const center = getPointerMidpoint(first, second);
+  const distance = Math.max(getPointerDistance(first, second), 1);
+
+  state.pinchZoom = {
+    boardX: (center.x - state.x) / state.scale,
+    boardY: (center.y - state.y) / state.scale,
+    distance,
+    scale: state.scale,
+  };
+}
+
+function setZoomAtPoint(nextScale, pointerX = viewport.clientWidth / 2, pointerY = viewport.clientHeight / 2) {
+  const previousScale = state.scale;
+  const clampedScale = clamp(nextScale, minZoom, maxZoom);
+  const boardX = (pointerX - state.x) / previousScale;
+  const boardY = (pointerY - state.y) / previousScale;
+
+  state.scale = clampedScale;
+  state.x = pointerX - boardX * clampedScale;
+  state.y = pointerY - boardY * clampedScale;
+  renderBoard();
+}
+
+function zoomBoardBy(delta) {
+  setZoomAtPoint(state.scale + delta);
+}
+
 function startBoardDrag(event) {
   if (state.unconnectMode && event.target.closest(".connection-line")) {
     return;
@@ -987,50 +1059,91 @@ function startBoardDrag(event) {
     return;
   }
 
+  event.preventDefault();
+  const pointer = getViewportPoint(event);
+
+  state.boardPointers.set(event.pointerId, pointer);
+
+  if (state.boardPointers.size >= 2) {
+    state.isDraggingBoard = false;
+    startPinchZoom();
+    viewport.classList.add("is-dragging");
+    viewport.setPointerCapture(event.pointerId);
+    return;
+  }
+
   state.isDraggingBoard = true;
-  state.lastX = event.clientX;
-  state.lastY = event.clientY;
+  state.lastX = pointer.x;
+  state.lastY = pointer.y;
   viewport.classList.add("is-dragging");
   viewport.setPointerCapture(event.pointerId);
 }
 
 function dragBoard(event) {
+  if (!state.boardPointers.has(event.pointerId)) {
+    return;
+  }
+
+  const pointer = getViewportPoint(event);
+  state.boardPointers.set(event.pointerId, pointer);
+
+  if (state.pinchZoom && state.boardPointers.size >= 2) {
+    const [first, second] = getBoardPointerPair();
+    const center = getPointerMidpoint(first, second);
+    const distance = Math.max(getPointerDistance(first, second), 1);
+    const nextScale = state.pinchZoom.scale * (distance / state.pinchZoom.distance);
+
+    state.scale = clamp(nextScale, minZoom, maxZoom);
+    state.x = center.x - state.pinchZoom.boardX * state.scale;
+    state.y = center.y - state.pinchZoom.boardY * state.scale;
+    renderBoard();
+    return;
+  }
+
   if (!state.isDraggingBoard) {
     return;
   }
 
-  state.x += event.clientX - state.lastX;
-  state.y += event.clientY - state.lastY;
-  state.lastX = event.clientX;
-  state.lastY = event.clientY;
+  state.x += pointer.x - state.lastX;
+  state.y += pointer.y - state.lastY;
+  state.lastX = pointer.x;
+  state.lastY = pointer.y;
   renderBoard();
 }
 
 function stopBoardDrag(event) {
-  state.isDraggingBoard = false;
-  viewport.classList.remove("is-dragging");
-
   if (viewport.hasPointerCapture(event.pointerId)) {
     viewport.releasePointerCapture(event.pointerId);
   }
+
+  state.boardPointers.delete(event.pointerId);
+
+  if (state.boardPointers.size >= 2) {
+    startPinchZoom();
+    return;
+  }
+
+  state.pinchZoom = null;
+
+  if (state.boardPointers.size === 1) {
+    const [remainingPointer] = state.boardPointers.values();
+    state.isDraggingBoard = true;
+    state.lastX = remainingPointer.x;
+    state.lastY = remainingPointer.y;
+    return;
+  }
+
+  state.isDraggingBoard = false;
+  viewport.classList.remove("is-dragging");
 }
 
 function zoomBoard(event) {
   event.preventDefault();
 
-  const rect = viewport.getBoundingClientRect();
-  const pointerX = event.clientX - rect.left;
-  const pointerY = event.clientY - rect.top;
-  const previousScale = state.scale;
+  const pointer = getViewportPoint(event);
   const zoomDirection = event.deltaY > 0 ? -1 : 1;
-  const nextScale = clamp(previousScale + zoomDirection * 0.1, 0.3, 3);
-  const boardX = (pointerX - state.x) / previousScale;
-  const boardY = (pointerY - state.y) / previousScale;
 
-  state.scale = nextScale;
-  state.x = pointerX - boardX * nextScale;
-  state.y = pointerY - boardY * nextScale;
-  renderBoard();
+  setZoomAtPoint(state.scale + zoomDirection * wheelZoomStep, pointer.x, pointer.y);
 }
 
 function startBlockDrag(event) {
@@ -1493,7 +1606,7 @@ function focusBlockById(blockId, targetScale = 1.25) {
 
   const width = block.width || 430;
   const height = block.height || 190;
-  state.scale = clamp(targetScale, 0.3, 3);
+  state.scale = clamp(targetScale, minZoom, maxZoom);
   state.x = viewport.clientWidth / 2 - (block.x + width / 2) * state.scale;
   state.y = viewport.clientHeight / 2 - (block.y + height / 2) * state.scale;
   renderBoard();
@@ -1602,7 +1715,11 @@ function stepViewerFocus(direction) {
 function updateViewerCounter() {
   const total = state.viewerFocusTargets.length;
   const shouldShow = state.viewerMode && total > 0;
+  const canStep = shouldShow && total > 1;
+
   viewerFocusCounter.hidden = !shouldShow;
+  viewerPreviousFocus.disabled = !canStep;
+  viewerNextFocus.disabled = !canStep;
 
   if (shouldShow) {
     viewerFocusCounter.textContent = `(${state.viewerFocusIndex + 1}/${total})`;
@@ -2250,6 +2367,22 @@ window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     clearViewerFocus();
   }
+});
+
+viewerPreviousFocus.addEventListener("click", () => {
+  stepViewerFocus(-1);
+});
+
+viewerNextFocus.addEventListener("click", () => {
+  stepViewerFocus(1);
+});
+
+zoomOutButton.addEventListener("click", () => {
+  zoomBoardBy(-buttonZoomStep);
+});
+
+zoomInButton.addEventListener("click", () => {
+  zoomBoardBy(buttonZoomStep);
 });
 
 viewport.addEventListener("pointerdown", startBoardDrag);

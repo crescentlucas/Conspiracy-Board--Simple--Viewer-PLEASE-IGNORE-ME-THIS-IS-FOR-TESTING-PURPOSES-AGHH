@@ -1031,6 +1031,13 @@ body.viewer-mode .note-card.is-justification-block {
   color: #14a9ff;
 }
 
+body.hide-text-colors .note-title .text-red,
+body.hide-text-colors .note-title .text-orange,
+body.hide-text-colors .note-title .text-yellow,
+body.hide-text-colors .note-title .text-blue,
+body.hide-text-colors .note-title .text-green,
+body.hide-text-colors .note-title .text-purple,
+body.hide-text-colors .note-title .text-cyan,
 body.hide-text-colors .note-text .text-red,
 body.hide-text-colors .note-text .text-orange,
 body.hide-text-colors .note-text .text-yellow,

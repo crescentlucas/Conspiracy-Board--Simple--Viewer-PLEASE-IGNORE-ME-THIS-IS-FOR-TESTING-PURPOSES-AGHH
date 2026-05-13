@@ -176,6 +176,7 @@ function createFallbackData() {
         name: "Primeiro Mapa",
         blocks: [],
         connections: [],
+        textColorRules: [],
       },
     ],
   };
@@ -235,6 +236,28 @@ function saveData() {
 
 function getCurrentBoard() {
   return state.data.boards.find((item) => item.id === state.currentBoardId) || null;
+}
+
+function normalizeTextColorRuleColor(color) {
+  const normalizedColor = String(color || "").toLowerCase();
+  return colorValues[normalizedColor] ? normalizedColor : "";
+}
+
+function normalizeTextColorRule(rule) {
+  const phrase = String(rule?.phrase || "").trim();
+  const color = normalizeTextColorRuleColor(rule?.color);
+
+  return phrase && color ? { phrase, color } : null;
+}
+
+function getTextColorRules(boardItem = getCurrentBoard()) {
+  if (!boardItem || !Array.isArray(boardItem.textColorRules)) {
+    return [];
+  }
+
+  return boardItem.textColorRules
+    .map(normalizeTextColorRule)
+    .filter(Boolean);
 }
 
 function normalizeConnectionColor(color) {
@@ -650,6 +673,7 @@ function renderBlocks() {
   renderConnections(currentBoard);
 
   const visibleBlocks = currentBoard.blocks.concat(state.pendingJustificationBlocks);
+  const textColorRules = getTextColorRules(currentBoard);
 
   visibleBlocks.forEach((block) => {
     const displayBlock = state.editingBlockId === block.id && state.editPreview
@@ -705,7 +729,7 @@ function renderBlocks() {
     if (displayBlock.title) {
       const title = document.createElement("div");
       title.className = "note-title";
-      title.textContent = displayBlock.title;
+      appendTextWithColorRules(title, displayBlock.title, textColorRules);
       card.append(title);
       card.classList.add("has-title");
     }
@@ -742,7 +766,7 @@ function renderBlocks() {
     if (hasText || !hasImage) {
       const text = document.createElement("div");
       text.className = "note-text";
-      renderBlockText(text, displayBlock.text || "");
+      renderBlockText(text, displayBlock.text || "", textColorRules);
       content.append(text);
     }
 
@@ -924,7 +948,83 @@ function appendConnectionPolyline(
   layer.append(line);
 }
 
-function renderBlockText(container, value) {
+function isWordCharacter(character) {
+  return Boolean(
+    character
+      && (/[0-9_]/.test(character) || character.toLowerCase() !== character.toUpperCase()),
+  );
+}
+
+function hasTextColorRuleBoundary(text, index, phrase) {
+  const previous = text[index - 1] || "";
+  const next = text[index + phrase.length] || "";
+  const startsWithWord = isWordCharacter(phrase[0]);
+  const endsWithWord = isWordCharacter(phrase[phrase.length - 1]);
+
+  return !(startsWithWord && isWordCharacter(previous))
+    && !(endsWithWord && isWordCharacter(next));
+}
+
+function findTextColorRuleMatch(text, startIndex, rules) {
+  const lowerText = text.toLowerCase();
+  let bestMatch = null;
+
+  rules.forEach((rule) => {
+    const lowerPhrase = rule.phrase.toLowerCase();
+    let index = lowerText.indexOf(lowerPhrase, startIndex);
+
+    while (index !== -1 && !hasTextColorRuleBoundary(text, index, rule.phrase)) {
+      index = lowerText.indexOf(lowerPhrase, index + 1);
+    }
+
+    if (
+      index !== -1
+        && (
+          !bestMatch
+            || index < bestMatch.index
+            || (index === bestMatch.index && rule.phrase.length > bestMatch.phrase.length)
+        )
+    ) {
+      bestMatch = { ...rule, index };
+    }
+  });
+
+  return bestMatch;
+}
+
+function appendTextWithColorRules(container, value, rules = getTextColorRules()) {
+  if (!value) {
+    return;
+  }
+
+  if (!rules.length) {
+    container.append(document.createTextNode(value));
+    return;
+  }
+
+  let cursor = 0;
+  let match = findTextColorRuleMatch(value, cursor, rules);
+
+  while (match) {
+    if (match.index > cursor) {
+      container.append(document.createTextNode(value.slice(cursor, match.index)));
+    }
+
+    const span = document.createElement("span");
+    span.className = `text-${match.color}`;
+    span.textContent = value.slice(match.index, match.index + match.phrase.length);
+    container.append(span);
+
+    cursor = match.index + match.phrase.length;
+    match = findTextColorRuleMatch(value, cursor, rules);
+  }
+
+  if (cursor < value.length) {
+    container.append(document.createTextNode(value.slice(cursor)));
+  }
+}
+
+function renderBlockText(container, value, textColorRules = getTextColorRules()) {
   const lines = value.split(/\r?\n/);
 
   let list = null;
@@ -941,7 +1041,7 @@ function renderBlockText(container, value) {
       const item = document.createElement("li");
       const itemText = document.createElement("span");
       itemText.className = "list-item-text";
-      appendFormattedText(itemText, bulletMatch[1]);
+      appendFormattedText(itemText, bulletMatch[1], textColorRules);
       if (itemText.childNodes.length) {
         item.append(itemText);
         list.append(item);
@@ -956,14 +1056,14 @@ function renderBlockText(container, value) {
     }
 
     const paragraph = document.createElement("p");
-    appendFormattedText(paragraph, line);
+    appendFormattedText(paragraph, line, textColorRules);
     if (paragraph.childNodes.length) {
       container.append(paragraph);
     }
   });
 }
 
-function appendFormattedText(container, value) {
+function appendFormattedText(container, value, textColorRules = getTextColorRules(), applyTextColorRules = true) {
   const colors = new Set(Object.keys(colorValues));
   const tagPattern = /\[(red|orange|yellow|blue|green|purple|cyan)\]([\s\S]*?)\[\/\1\]|\[goto:([^\]:]+)(?::([^\]]+))?\]([\s\S]*?)\[\/goto\]|\[justify:([^\]]+)\]([\s\S]*?)\[\/justify\]|\[size:(\d{1,2})\]([\s\S]*?)\[\/size\]/gi;
   let cursor = 0;
@@ -971,7 +1071,11 @@ function appendFormattedText(container, value) {
 
   while (match) {
     if (match.index > cursor) {
-      container.append(document.createTextNode(value.slice(cursor, match.index)));
+      appendTextWithColorRules(
+        container,
+        value.slice(cursor, match.index),
+        applyTextColorRules ? textColorRules : [],
+      );
     }
 
     if (match[1]) {
@@ -982,7 +1086,7 @@ function appendFormattedText(container, value) {
         span.className = `text-${color}`;
       }
 
-      appendFormattedText(span, match[2]);
+      appendFormattedText(span, match[2], textColorRules, false);
       container.append(span);
     } else if (match[3]) {
       const boardId = match[3];
@@ -990,21 +1094,21 @@ function appendFormattedText(container, value) {
       const link = document.createElement("a");
       link.className = "board-link";
       link.href = `#corkboard/${encodeURIComponent(boardId)}${blockId ? `/${encodeURIComponent(blockId)}` : ""}`;
-      link.textContent = match[5];
+      appendFormattedText(link, match[5], textColorRules, applyTextColorRules);
       container.append(link);
     } else if (match[6]) {
       const button = document.createElement("button");
       button.className = "justify-link";
       button.type = "button";
       button.dataset.justifyTarget = match[6];
-      appendFormattedText(button, match[7]);
+      appendFormattedText(button, match[7], textColorRules, applyTextColorRules);
       container.append(button);
     } else if (match[8]) {
       const size = clamp(Number(match[8]), 10, 72);
       const span = document.createElement("span");
       span.className = "text-sized";
       span.style.fontSize = `${size}px`;
-      appendFormattedText(span, match[9]);
+      appendFormattedText(span, match[9], textColorRules, applyTextColorRules);
       container.append(span);
     }
 
@@ -1013,7 +1117,11 @@ function appendFormattedText(container, value) {
   }
 
   if (cursor < value.length) {
-    container.append(document.createTextNode(value.slice(cursor)));
+    appendTextWithColorRules(
+      container,
+      value.slice(cursor),
+      applyTextColorRules ? textColorRules : [],
+    );
   }
 }
 
